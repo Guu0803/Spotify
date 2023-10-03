@@ -82,73 +82,97 @@
       </div>
     </div>
     <div class="reproduction-container">
-        <div class="artist-reproduction">
-          <div>
-            <img src="@/assets/album-teste.png" class="thumb-album">
+      <div class="artist-reproduction">
+        <div>
+          <img src="@/assets/album-teste.png" class="thumb-album">
+        </div>
+        <div class="reproduction">
+          <div class="reproduction-name">
+            Heartstrings
           </div>
-          <div class="reproduction">
-            <div class="reproduction-name">
-              Heartstrings
-            </div>
-            <div class="reproduction-artist">
-              Jacob Lee
-            </div>
-            <span class="material-symbols-sharp">
-              favorite
-            </span>
+          <div class="reproduction-artist">
+            Jacob Lee
           </div>
         </div>
+        <span class="material-symbols-sharp like">
+          favorite
+        </span>
+      </div>
 
-        <div class="reproduction-options">
-          <img src="@/assets/microfone.png">
-          <img src="@/assets/microfone-verde.png">
-          <img src="@/assets/aleatorio.png">
-          <img src="@/assets/aleatorio-verde.png">
-          <img src="@/assets/repetir.png">
-          <img src="@/assets/repetir-verde.png">
-
-          <span class="material-symbols-sharp">
+      <div class="reproduction-options">
+        <div>
+          <img src="@/assets/aleatorio.png" class="playback-icon">
+          <img src="@/assets/aleatorio-verde.png" class="playback-icon" v-if="random">
+          <span class="material-symbols-sharp skip">
             skip_previous
           </span>
-          <span class="material-symbols-sharp">
-            skip_next
-          </span>
-          <span class="material-icons">
+          <span class="material-icons play">
             play_arrow
           </span>
-          <span class="material-icons">
+          <span class="material-icons play" v-if="pause == false">
             pause
           </span>
+          <span class="material-symbols-sharp skip">
+            skip_next
+          </span>
+          <img src="@/assets/repetir.png" class="playback-icon">
+          <img src="@/assets/repetir-verde.png" class="playback-icon" v-if="loop">
+        </div>
+        <div>
+          <input type="range" class="progress">
         </div>
 
-        <div class="reproduction-configs">
-          <span class="material-symbols-sharp">
-            queue_music
-          </span>
-          <span class="material-symbols-sharp">
-            slideshow
-          </span>
-          <span class="material-symbols-sharp">
-            devices
-          </span>
-          <span class="material-symbols-sharp">
-            volume_down
-          </span>
-          <span class="material-symbols-sharp">
-            volume_up
-          </span>
-          <span class="material-symbols-sharp">
-            no_sound
-          </span>
-          <span class="material-symbols-sharp">
-            open_in_full
-          </span>
-        </div>
       </div>
+
+      <div class="reproduction-configs">
+        <span class="material-symbols-sharp configs-icon">
+          slideshow
+        </span>
+        <img src="@/assets/microfone.png" class="microfone">
+        <img src="@/assets/microfone-verde.png" v-if="letter" class="microfone">
+        <span class="material-symbols-sharp configs-icon">
+          queue_music
+        </span>
+        <span class="material-symbols-sharp configs-icon">
+          devices
+        </span>
+        <span class="material-symbols-sharp configs-icon">
+          no_sound
+        </span>
+        <span class="material-symbols-sharp configs-icon">
+          volume_down
+        </span>
+        <span class="material-symbols-sharp configs-icon">
+          volume_up
+        </span>
+        <div class="volume">
+          <input type="range">
+        </div>
+        <span class="material-symbols-sharp fullscreen">
+          open_in_full
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 <script>
+export default {
+  data() {
+    return {
 
+    }
+  },
+  methods: {
+    progresso() {
+      const progress = document.querySelector('.progress');
+      progress.addEventListener('input', function () {
+        const value = this.value;
+        this.style.background = `linear-gradient(to right, #82CFD0 0%, #82CFD0 ${value}%, #fff ${value}%, white 100%)`
+      })
+
+    }
+  }
+}
 
 </script>
 <style>
@@ -184,13 +208,13 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2vh;
-  width: 5vw;  
+  width: 5vw;
 }
 
 .home,
 .nav-menu {
   display: flex;
-  width: 5vw;
+  width: 6vw;
   flex-direction: column;
   gap: 1vh;
   color: var(--font-color);
@@ -198,11 +222,12 @@ body {
   padding: 1vh;
   border-radius: 10px;
 }
-.nav-menu{
-  height: 61vh;
-  overflow-y: scroll;
 
+.nav-menu {
+  height: 67.2vh;
+  overflow-y: scroll;
 }
+
 .nav-img {
   border-radius: 5px;
   height: 8vh;
@@ -226,14 +251,6 @@ body {
   color: #fff;
 }
 
-.material-symbols-sharp {
-  font-variation-settings:
-    FILL 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
-}
-
 svg {
   fill: var(--font-color);
   cursor: pointer;
@@ -254,7 +271,7 @@ svg:hover {
   padding: 3vh 1vw;
   color: var(--font-color);
   width: 30vw;
-  height: 72vh;
+  height: 78vh;
   overflow-x: hidden;
   overflow-y: scroll;
   border-radius: 10px;
@@ -346,25 +363,244 @@ svg:hover {
   margin-right: 2vw;
   font-size: 0.9em;
 }
-.description{
+
+.description {
   padding: 1vw;
   font-size: 0.9em;
   font-weight: 600;
 }
-.reproduction-container{
+
+.reproduction-container {
   position: absolute;
+  justify-content: space-between;
   display: flex;
-  height: 15vh;
+  height: 10vh;
   width: 99%;
   background-color: var(--background);
   bottom: 0;
+}
 
+.thumb-album {
+  height: 9vh;
+  border-radius: 5px;
 }
-.thumb-album{
-  height:9vh;
-}
-.artist-reproduction{
+
+.artist-reproduction {
   display: flex;
+  align-items: center;
   color: var(--font-color-hover);
 }
+
+.reproduction {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+  margin: 0 1vw;
+}
+
+.reproduction-name {
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.reproduction-artist {
+  color: var(--font-color);
+  font-size: 0.7em;
+}
+
+.like {
+  font-weight: 200;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+.reproduction>div:hover {
+  text-decoration: underline 2px;
+  cursor: pointer;
+}
+
+.like:hover {
+  color: var(--font-color-hover);
+}
+
+.reproduction-options {
+  display: flex;
+  flex-direction: column;
+  color: var(--font-color);
+  gap: 1vh;
+  justify-content: center;
+}
+
+.reproduction-options>div {
+  width: 35vw;
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 1vh 0;
+  width: 100%;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.6vh;
+  cursor: pointer;
+  background: #a7a7a7;
+  border-radius: 20px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type=range]:hover::-webkit-slider-thumb {
+  height: 2vh;
+  width: 2vh;
+  margin-top: -0.6vh;
+  background: #fff;
+  transition: ease-in-out;
+}
+
+input[type=range]:hover::-webkit-slider-runnable-track {
+  background: #1ED760;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: red;
+  border-radius: 1px;
+  border: 0px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #FFFFFF;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #1ED760;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #1ED760;
+  border: 0px solid #000000;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #FFFFFF;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #1ED760;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #1ED760;
+}
+
+
+.playback-icon {
+  height: 3vh;
+  cursor: pointer;
+}
+
+.play {
+  font-size: 1.5em;
+  background-color: #fff;
+  padding: 1vh;
+  border-radius: 50%;
+  color: #000;
+  cursor: pointer;
+}
+
+.play:hover {
+  scale: 1.1;
+}
+
+.skip {
+  font-size: 2em;
+  color: var(--font-color);
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.skip:hover {
+  color: var(--font-color-hover);
+}
+
+.reproduction-configs {
+  color: var(--font-color);
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  margin-right: 1vw;
+}
+
+.configs-icon:hover,
+.fullscreen:hover {
+  cursor: pointer;
+  color: var(--font-color-hover);
+}
+
+.microfone {
+  cursor: pointer;
+}
+
+.fullscreen {
+  font-size: 1.2em;
+}
+
+.volume {
+  width: 10vw;
+  margin-bottom: 0.5vh;
+}
+
+::-webkit-scrollbar{
+  appearance: none;
+  scroll-behavior: smooth;
+}
+.footer::-webkit-scrollbar-track {
+  background: transparent;
+  width: 1px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a7a7a750;
+}
 </style>
+
+
