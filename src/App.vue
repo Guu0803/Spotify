@@ -5,18 +5,16 @@
         <span class="material-symbols-sharp house">
           home
         </span>
+        <span class="material-symbols-sharp house" v-if="home">
+          home
+        </span>
         <span class="material-symbols-sharp search">
           search
         </span>
       </div>
       <div class="nav-menu">
-        <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon"
-          class="Svg-sc-ytk21e-0 haNxPq library">
-          <path
-            d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z">
-          </path>
-        </svg>
-
+        <img src="@/assets/biblioteca.png" class="library">
+        <img src="@/assets/biblioteca-cheia.png" class="library" v-if="library">
         <img src="@/assets/musicas-curtidas.png" class="nav-img">
         <img src="@/assets/episodios.png" class="nav-img">
         <img src="@/assets/descobertas.png" class="nav-img">
@@ -47,15 +45,15 @@
             <div class="song">
               Heartstrings
             </div>
-            <div>
+            <div class="artist">
               Jacob Lee
             </div>
           </div>
           <div class="like-container">
-            <span class="material-symbols-sharp">
+            <span class="material-symbols-sharp like">
               favorite
             </span>
-            <span class="material-symbols-sharp">
+            <span class="material-symbols-sharp like">
               more_horiz
             </span>
           </div>
@@ -187,8 +185,8 @@ body {
   --font-color: #a7a7a7;
   --font-color-hover: #fff;
   --div-background: #121212;
-  --div-background-2: #242424;
-  --background-highlight: #1a1a1a;
+  --div-background-2:#1a1a1a ;
+  --background-highlight:#242424 ;
   --background: #000;
   --background-hover: hsla(0, 0%, 100%, .07);
 }
@@ -208,24 +206,31 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2vh;
-  width: 5vw;
+  box-sizing: border-box;
+  height: 84vh;
 }
 
 .home,
 .nav-menu {
   display: flex;
-  width: 6vw;
+  width: 5vw;
   flex-direction: column;
-  gap: 1vh;
   color: var(--font-color);
   background-color: var(--div-background);
-  padding: 1vh;
   border-radius: 10px;
+  align-items: center;
+}
+.home {
+  gap: 2vh;
+  padding: 2vh 1vh;
 }
 
 .nav-menu {
   height: 67.2vh;
+  gap: 1vh;
   overflow-y: scroll;
+  overflow-x:hidden ;
+  padding: 1vh;
 }
 
 .nav-img {
@@ -251,14 +256,11 @@ body {
   color: #fff;
 }
 
-svg {
-  fill: var(--font-color);
+.library {
+  width: 6vh;
+  height: 7vh;
+  margin-left: 1.3vh;
   cursor: pointer;
-  margin: 1vh 0 0 3vh;
-}
-
-svg:hover {
-  fill: var(--font-color-hover);
 }
 
 .page-body {
@@ -326,12 +328,15 @@ svg:hover {
   cursor: pointer;
   margin-bottom: 1vh;
 }
+.artist:hover {
+  text-decoration: underline 2px;
+  cursor: pointer;
+}
 
 .about-the-artist {
   background-color: var(--div-background-2);
   border-radius: 10px;
   margin-top: 3vh;
-
 }
 
 .name {
@@ -339,6 +344,10 @@ svg:hover {
   color: var(--font-color-hover);
   font-size: 1.1em;
   margin-left: 2vw;
+  cursor: pointer;
+}
+.name:hover {
+  text-decoration: underline 2px;
 }
 
 .about-banner {
@@ -362,6 +371,10 @@ svg:hover {
   color: var(--font-color-hover);
   margin-right: 2vw;
   font-size: 0.9em;
+  cursor: pointer;
+}
+.follow:hover {
+  scale: 1.1;
 }
 
 .description {
@@ -374,10 +387,12 @@ svg:hover {
   position: absolute;
   justify-content: space-between;
   display: flex;
+  align-items: center;
   height: 10vh;
   width: 99%;
   background-color: var(--background);
   bottom: 0;
+  padding-bottom: 2vh;
 }
 
 .thumb-album {
@@ -409,9 +424,10 @@ svg:hover {
 }
 
 .like {
-  font-weight: 200;
+  font-weight: 400;
   color: var(--font-color);
   cursor: pointer;
+  height: fit-content;
 }
 
 .reproduction>div:hover {
@@ -531,7 +547,6 @@ input[type=range]:focus::-ms-fill-upper {
   background: #1ED760;
 }
 
-
 .playback-icon {
   height: 3vh;
   cursor: pointer;
@@ -588,13 +603,15 @@ input[type=range]:focus::-ms-fill-upper {
   margin-bottom: 0.5vh;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   appearance: none;
   scroll-behavior: smooth;
+  width: 10px;
+
 }
+
 .footer::-webkit-scrollbar-track {
   background: transparent;
-  width: 1px;
 
 }
 
