@@ -1,58 +1,40 @@
 <template>
     <div class="window-home">
         <div class="background-container" :style="background()">
-            <div class="nav-btn">
-                <div class="btn">
-                    <span class="material-symbols-sharp previous">
-                        chevron_left
-                    </span>
-                    <span class="material-symbols-sharp next">
-                        chevron_right
-                    </span>
-                </div>
-                <div class="user-btn">
-                    <span class="material-symbols-sharp notification">
-                        notifications
-                    </span>
-                    <span class="material-symbols-sharp group">
-                        groups
-                    </span>
-                    <img src="@/assets/img-user.png" class="img-user">
-                </div>
-            </div>
             <div class="greeting">
                 Bom dia
             </div>
             <div class="playlist-container">
                 <div class="playlist-collumn">
-                    <div class="playlist" v-on:mouseover="curtidas()" v-on:mouseleave="backgroundOff()">
+                    <div class="playlist" v-on:mouseover="curtidas()" v-on:mouseleave="backgroundOff()" v-on:click="toMusicasCurtidas()">
                         <img src="@/assets/musicas-curtidas.png" class="
                     img-thumb">
                         Músicas Curtidas
                     </div>
-                    <div class="playlist" v-on:mouseover="indie()" v-on:mouseleave="backgroundOff()">
+                    <div class="playlist" v-on:mouseover="indie()" v-on:mouseleave="backgroundOff()" v-on:click="toIndie()">
                         <img src="@/assets/thumb-mix-indie.png" class="
                     img-thumb">
                         Mix Indie
                     </div>
-                    <div class="playlist" v-on:mouseover="indieVibration()" v-on:mouseleave="backgroundOff()">
+                    <div class="playlist" v-on:mouseover="indieVibration()" v-on:mouseleave="backgroundOff()" v-on:click="toIndieVibration()" >
                         <img src="@/assets/indie.png" class="
                     img-thumb">
                         Indie Vibration
                     </div>
                 </div>
                 <div class="playlist-collumn">
-                    <div class="playlist" v-on:mouseover="country()" v-on:mouseleave="backgroundOff()">
+                    <div class="playlist" v-on:mouseover="country()" v-on:mouseleave="backgroundOff()" v-on:click="toCountry()">
                         <img src="@/assets/country.png" class="
                     img-thumb">
                         Fucking Country Music
                     </div>
-                    <div class="playlist" v-on:mouseover="sessions()" v-on:mouseleave="backgroundOff()">
+                    <div class="playlist" v-on:mouseover="sessions()" v-on:mouseleave="backgroundOff()" v-on:click="toSessions()">
                         <img src="@/assets/session.png" class="
                     img-thumb">
                         Sessions
                     </div>
-                    <div class="playlist" v-on:mouseover="descobertas()" v-on:mouseleave="backgroundOff()">
+                    <div class="playlist" v-on:mouseover="descobertas()" v-on:mouseleave="backgroundOff()"
+                        v-on:click="toDescobertas()">
                         <img src="@/assets/descobertas.png" class="
                     img-thumb">
                         Descobertas da Semana
@@ -69,7 +51,7 @@
             </div>
         </div>
         <div class="recommendation">
-            <div class="recommendation-card">
+            <div class="recommendation-card" v-on:click="toIndie()">
                 <img src="@/assets/mix-indie.png" class="thumb-recommendation">
                 <div class="title">
                     Mix Indie
@@ -91,7 +73,7 @@
                     </span>
                 </div>
             </div>
-            <div class="recommendation-card">
+            <div class="recommendation-card" v-on:click="toMixMetal()">
                 <img src="@/assets/mix-metal.png" class="thumb-recommendation">
                 <div class="title">
                     Mix Metal
@@ -110,7 +92,7 @@
                     </span>
                 </div>
             </div>
-            <div class="recommendation-card">
+            <div class="recommendation-card" v-on:click="toDailyMix()">
                 <img src="@/assets/daily-mix.png" class="thumb-recommendation">
                 <div class="title">
                     Daily Mix 1
@@ -129,7 +111,7 @@
                     </span>
                 </div>
             </div>
-            <div class="recommendation-card">
+            <div class="recommendation-card" v-on:click="toMixRelax()">
                 <img src="@/assets/mix-relax.png" class="thumb-recommendation">
                 <div class="title">
                     Mix Relax
@@ -160,6 +142,33 @@ export default {
         }
     },
     methods: {
+        toCountry(){
+            this.$router.push('/country')
+        },
+        toSessions(){
+            this.$router.push('/sessions')
+        },
+        toMusicasCurtidas(){
+            this.$router.push('/musicas-curtidas')
+        },
+        toMixRelax() {
+            this.$router.push('/mix-relax')
+        },
+        toMixMetal() {
+            this.$router.push('/mix-metal')
+        },
+        toIndieVibration() {
+            this.$router.push('/indie-vibration')
+        },
+        toDailyMix() {
+            this.$router.push('/daily-mix')
+        },
+        toDescobertas() {
+            this.$router.push('/descobertas-da-semana')
+        },
+        toIndie() {
+            this.$router.push('/mix-indie')
+        },
         indie() {
             this.playlist = 'indie'
         },
@@ -191,13 +200,13 @@ export default {
             if (this.playlist == 'country') {
                 return 'background-image: linear-gradient(to bottom, rgba(184,20,20, 0.7), rgba(184,20,20, 0.60), rgba(184,20,20, 0.50), rgba(184,20,20, 0.20), rgba(184,20,20, 0.10), var(--div-background));'
             }
-            if(this.playlist == 'vibration'){
+            if (this.playlist == 'vibration') {
                 return 'background-image: linear-gradient(to bottom, rgba(237, 145, 33, 0.7), rgba(237 , 145 , 33, 0.60), rgba(237 , 145 , 33, 0.50), rgba(237 , 145 , 33, 0.20), rgba(237 , 145 , 33, 0.10), var(--div-background));'
             }
-            if(this.playlist == 'sessions'){
+            if (this.playlist == 'sessions') {
                 return 'background-image: linear-gradient(to bottom, rgba(114, 49, 114, 0.7), rgba(114, 49, 114, 0.60), rgba(114, 49, 114, 0.50), rgba(114, 49, 114, 0.20), rgba(114, 49, 114, 0.10), var(--div-background));'
             }
-            if(this.playlist == 'descobertas'){
+            if (this.playlist == 'descobertas') {
                 return 'background-image: linear-gradient(to bottom, rgba(255, 72, 0, 0.7), rgba(255, 72, 0, 0.60), rgba(255, 72, 0, 0.50), rgba(255, 72, 0, 0.20), rgba(255, 72, 0, 0.10), var(--div-background));'
             }
         },
@@ -217,77 +226,11 @@ export default {
     --background-hover: hsla(0, 0%, 100%, .07);
 }
 
-.window-home {
-    width: 66vw;
-    height: 84vh;
-    border-radius: 10px;
-    background-color: var(--div-background);
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
 .background-container {
     padding: 1vw 1vw 0 1vw;
     border-radius: 10px 10px 0 0;
-    
-}
+    transition: ease-in-out 200ms;
 
-.nav-btn {
-    display: flex;
-    color: var(--font-color);
-    justify-content: space-between;
-    align-items: center;
-}
-
-.btn {
-    display: flex;
-    gap: 1vw;
-    height: 5vh;
-    align-items: center;
-}
-
-.next,
-.previous {
-    background-color: #00000050;
-    border-radius: 50%;
-    font-size: 2.1em;
-    cursor: pointer;
-}
-
-.next:hover,
-.previous:hover {
-    color: var(--font-color-hover);
-}
-
-.user-btn {
-    display: flex;
-    gap: 1vw;
-    align-items: center;
-}
-
-.img-user,
-.notification,
-.group {
-    height: 4vh;
-    background-color: #000;
-    border-radius: 50%;
-    padding: 0.4vh;
-    cursor: pointer;
-}
-
-.group {
-    width: 3.8vh;
-}
-
-.group:hover,
-.notification:hover {
-    color: var(--font-color-hover);
-}
-
-.img-user:hover {
-    scale: 1.1;
 }
 
 .greeting {
@@ -295,7 +238,7 @@ export default {
     font-size: 2em;
     font-weight: 700;
     letter-spacing: -2px;
-    margin: 2vh 1vw 2vh 0;
+    margin: 6vh 1vw 2vh 0;
 }
 
 .playlist-container {
@@ -427,6 +370,7 @@ export default {
     margin-top: 1vh;
     line-height: 3vh;
     display: flex;
+    gap: 1vh;
     flex-wrap: wrap;
 }
 </style>

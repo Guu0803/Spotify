@@ -1,5 +1,5 @@
 <template>
-  <div class="window">
+  <div class="window-app">
     <div class="header">
       <div class="home">
         <span class="material-symbols-sharp house">
@@ -15,13 +15,32 @@
       <div class="nav-menu">
         <img src="@/assets/biblioteca.png" class="library">
         <img src="@/assets/biblioteca-cheia.png" class="library" v-if="library">
-        <img src="@/assets/musicas-curtidas.png" class="nav-img">
+        <img src="@/assets/musicas-curtidas.png" class="nav-img" v-on:click="toMusicasCurtidas()">
         <img src="@/assets/episodios.png" class="nav-img">
-        <img src="@/assets/descobertas.png" class="nav-img">
-        <img src="@/assets/country.png" class="nav-img">
-        <img src="@/assets/indie.png" class="nav-img">
-        <img src="@/assets/nothing.png" class="nav-img">
-        <img src="@/assets/session.png" class="nav-img">
+        <img src="@/assets/descobertas.png" class="nav-img" v-on:click="toDescobertas()">
+        <img src="@/assets/country.png" class="nav-img" v-on:click="toCountry()">
+        <img src="@/assets/indie.png" class="nav-img" v-on:click="toIndieVibration()">
+        <img src="@/assets/nothing.png" class="nav-img" v-on:click="toNothing()">
+        <img src="@/assets/session.png" class="nav-img" v-on:click="toSessions()">
+      </div>
+    </div>
+    <div class="nav-btn">
+      <div class="btn">
+        <span class="material-symbols-sharp previous" v-on:click="goBack()">
+          chevron_left
+        </span>
+        <span class="material-symbols-sharp next">
+          chevron_right
+        </span>
+      </div>
+      <div class="user-btn">
+        <span class="material-symbols-sharp notification">
+          notifications
+        </span>
+        <span class="material-symbols-sharp group">
+          groups
+        </span>
+        <img src="@/assets/img-user.png" class="img-user">
       </div>
     </div>
 
@@ -75,7 +94,7 @@
         <div class="description">
           Traduzido do inglês-Jacob Lee Christian Blowes, que atua como Jacob Lee, é um pop australiano, cantor e
           compositor de Gold Coast, Queensland. Em maio-junho de 2014, ele participou da terceira série australiana do The
-          Voice e foi treinado por will.i.am.
+          Voice e foi treinado por Will.i.am.
         </div>
       </div>
     </div>
@@ -161,13 +180,32 @@ export default {
     }
   },
   methods: {
-    progresso() {
-      const progress = document.querySelector('.progress');
-      progress.addEventListener('input', function () {
-        const value = this.value;
-        this.style.background = `linear-gradient(to right, #82CFD0 0%, #82CFD0 ${value}%, #fff ${value}%, white 100%)`
-      })
-
+    // progresso() {
+    //   const progress = document.querySelector('.progress');
+    //   progress.addEventListener('input', function () {
+    //     const value = this.value;
+    //     this.style.background = `linear-gradient(to right, #82CFD0 0%, #82CFD0 ${value}%, #fff ${value}%, white 100%)`
+    //   })
+    // }
+    goBack() {
+      this.$router.go(-1)
+    },
+    toMusicasCurtidas() {
+      this.$router.push('/musicas-curtidas')
+    },
+    toDescobertas() {
+      this.$router.push('/descobertas-da-semana')
+    },
+    toCountry() {
+      this.$router.push('/country')
+    },
+    toNothing() {
+      this.$router.push('/this-is-nothing-but-thieves')
+    },
+    toIndieVibration() {
+      this.$router.push('/indie-vibration')
+    }, toSessions() {
+      this.$router.push('/sessions')
     }
   }
 }
@@ -185,13 +223,13 @@ body {
   --font-color: #a7a7a7;
   --font-color-hover: #fff;
   --div-background: #121212;
-  --div-background-2:#1a1a1a ;
-  --background-highlight:#242424 ;
+  --div-background-2: #1a1a1a;
+  --background-highlight: #242424;
   --background: #000;
   --background-hover: hsla(0, 0%, 100%, .07);
 }
 
-.window {
+.window-app {
   display: flex;
   gap: 1vw;
   padding: 2vh 2vh 0 2vh;
@@ -220,6 +258,7 @@ body {
   border-radius: 10px;
   align-items: center;
 }
+
 .home {
   gap: 2vh;
   padding: 2vh 1vh;
@@ -229,7 +268,7 @@ body {
   height: 67.2vh;
   gap: 1vh;
   overflow-y: scroll;
-  overflow-x:hidden ;
+  overflow-x: hidden;
   padding: 1vh;
 }
 
@@ -263,9 +302,78 @@ body {
   cursor: pointer;
 }
 
+.nav-btn {
+  display: flex;
+  color: var(--font-color);
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 57.5vw;
+  margin: 1vw 0;
+  left: 9vw;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.btn {
+  display: flex;
+  gap: 1vw;
+  height: 5vh;
+  align-items: center;
+}
+
+.next,
+.previous {
+  background-color: #00000050;
+  border-radius: 50%;
+  font-size: 2.1em;
+  cursor: pointer;
+}
+
+.next:hover,
+.previous:hover {
+  color: var(--font-color-hover);
+}
+
+.user-btn {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
+.img-user,
+.notification,
+.group {
+  height: 4vh;
+  background-color: #000;
+  border-radius: 50%;
+  padding: 0.4vh;
+  cursor: pointer;
+}
+
+.group {
+  width: 3.8vh;
+}
+
+.group:hover,
+.notification:hover {
+  color: var(--font-color-hover);
+}
+
+.img-user:hover {
+  scale: 1.1;
+}
+
+
 .page-body {
-  width: 60vw;
-  height: 82vh;
+  width: 66vw;
+  height: 84vh;
+  border-radius: 10px;
+  background-color: var(--div-background);
+  overflow-y: overlay;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer {
@@ -275,7 +383,7 @@ body {
   width: 30vw;
   height: 78vh;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: overlay;
   border-radius: 10px;
 }
 
@@ -305,6 +413,7 @@ body {
 .img-info {
   width: 100%;
   margin: 2vh 0;
+  cursor: pointer;
 }
 
 .artist-container {
@@ -328,6 +437,7 @@ body {
   cursor: pointer;
   margin-bottom: 1vh;
 }
+
 .artist:hover {
   text-decoration: underline 2px;
   cursor: pointer;
@@ -346,6 +456,7 @@ body {
   margin-left: 2vw;
   cursor: pointer;
 }
+
 .name:hover {
   text-decoration: underline 2px;
 }
@@ -373,6 +484,7 @@ body {
   font-size: 0.9em;
   cursor: pointer;
 }
+
 .follow:hover {
   scale: 1.1;
 }
@@ -607,16 +719,17 @@ input[type=range]:focus::-ms-fill-upper {
   appearance: none;
   scroll-behavior: smooth;
   width: 10px;
+  background: #000;
 
 }
 
-.footer::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: transparent;
-
 }
 
 ::-webkit-scrollbar-thumb {
   background: #a7a7a750;
+
 }
 </style>
 
