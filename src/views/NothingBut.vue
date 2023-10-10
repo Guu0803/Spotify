@@ -1,6 +1,6 @@
 <template>
     <div>
-        <playlist playlistName="This is Nothing but Thieves" />
+        <playlist playlistName="This is Nothing but Thieves" :playlistImg="require('@/assets/nothing.png')" playlist="nothing"/>
     </div>
 </template>
 <script>

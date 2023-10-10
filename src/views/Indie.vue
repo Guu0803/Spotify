@@ -1,6 +1,6 @@
 <template>
     <div>
-        <playlist playlistName="Mix Indie" artist1="Corella" artist2="Vistas" artist3="Somebody's Child" />
+        <playlist playlistName="Mix Indie" artist1="Corella" artist2="Vistas" artist3="Somebody's Child" :playlistImg="require('@/assets/mix-indie.png')" playlist="indie" />
     </div>
 </template>
 <script>

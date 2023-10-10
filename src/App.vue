@@ -2,10 +2,7 @@
   <div class="window-app">
     <div class="header">
       <div class="home">
-        <span class="material-symbols-sharp house">
-          home
-        </span>
-        <span class="material-symbols-sharp house" v-if="home">
+        <span class="material-symbols-sharp house" v-on:click="toHome()">
           home
         </span>
         <span class="material-symbols-sharp search">
@@ -16,7 +13,7 @@
         <img src="@/assets/biblioteca.png" class="library">
         <img src="@/assets/biblioteca-cheia.png" class="library" v-if="library">
         <img src="@/assets/musicas-curtidas.png" class="nav-img" v-on:click="toMusicasCurtidas()">
-        <img src="@/assets/episodios.png" class="nav-img">
+        <img src="@/assets/episodios.png" class="nav-img" v-on:click="toSeusEpisodios()" >
         <img src="@/assets/descobertas.png" class="nav-img" v-on:click="toDescobertas()">
         <img src="@/assets/country.png" class="nav-img" v-on:click="toCountry()">
         <img src="@/assets/indie.png" class="nav-img" v-on:click="toIndieVibration()">
@@ -206,6 +203,12 @@ export default {
       this.$router.push('/indie-vibration')
     }, toSessions() {
       this.$router.push('/sessions')
+    },
+    toSeusEpisodios(){
+      this.$router.push('/seus-episodios')
+    },
+    toHome(){
+      this.$router.push('/')
     }
   }
 }

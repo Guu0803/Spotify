@@ -1,12 +1,12 @@
 <template>
     <div>
-        <playlist playlistName="Indie Vibration" :playlistImg="require('@/assets/indie.png')" playlist="vibration"/>
+        <playlist playlistName="Seus episódios" :playlistImg="require('@/assets/episodios.png')" :episode="true"  playlist="episodios"/>
     </div>
 </template>
 <script>
 import playlist from '@/components/playlist.vue';
 export default{
-    name:'indieVibrationPage',
+    name:'episodiosPage',
     components:{
         playlist
     }

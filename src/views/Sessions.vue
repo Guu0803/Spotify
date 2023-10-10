@@ -1,6 +1,6 @@
 <template>
     <div>
-        <playlist playlistName="Sessions" />
+        <playlist playlistName="Sessions" :playlistImg="require('@/assets/session.png')" playlistDescription="Um Match de músicas feito para Gustavo, Victor e Dry. Atualizado todos os dias" playlist="session"/>
     </div>
 </template>
 <script>

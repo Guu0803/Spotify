@@ -1,6 +1,7 @@
 <template>
     <div>
-        <playlist playlistName="Mix Relax" artist1="Dennis Lloyd" artist2="Frank Ocean" artist3="Ryan McMullan" />
+        <playlist playlistName="Mix Relax" artist1="Dennis Lloyd" artist2="Frank Ocean" artist3="Ryan McMullan" 
+        :playlistImg="require('@/assets/mix-relax.png')" playlist="relax"/>
     </div>
 </template>
 <script>

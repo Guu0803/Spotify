@@ -1,7 +1,7 @@
 <template>
-    <div class="window">
+    <div class="window" :style="background()">
         <div class="playlist-info">
-            <img src="@/assets/mix-indie.png" class="img-thumb">
+            <img :src="playlistImg" class="img-thumb">
             <div>
                 <div class="playlist-type">
                     Playlist pública
@@ -9,19 +9,22 @@
                 <div class="playlist-name">
                     {{ playlistName }}
                 </div>
-                <div class="playlist-artist">
+                <div class="playlist-artist" v-if="artist1">
                     <div>
-                        {{artist1}},
+                        {{ artist1 }},
                     </div>
                     <div>
-                        {{artist2}},
+                        {{ artist2 }},
                     </div>
-                    <div>
-                        {{artist3}},
+                    <div v-if="artist2">
+                        {{ artist3 }}
                     </div>
                     <div>
                         e mais
                     </div>
+                </div>
+                <div class="description" v-if="playlistDescription">
+                    {{ playlistDescription }}
                 </div>
                 <div class="info">
                     <img src="@/assets/spotify-icon.png">
@@ -33,14 +36,19 @@
                         <span class="material-icons dot">
                             fiber_manual_record
                         </span>
-                        5 músicas,
+                        <div v-if="episode == true">
+                            2 episódios,
+                        </div>
+                        <div v-else>
+                            5 músicas,
+                        </div>
                     </div>
                     2h 40min *fazer conta
                 </div>
             </div>
         </div>
         <div class="playlist-header">
-            <div class="btn-container">
+            <div class="btn-container" :style="backgroundBtn()">
                 <div class="btns">
                     <span class="material-icons play-btn">
                         play_arrow
@@ -67,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            <div class="columns-container">
+            <div class="columns-container" :style="backgroundDivColumns()">
                 <div class="columns">
                     <div class="number">
                         #
@@ -97,7 +105,116 @@
 
 export default {
     name: 'indiePage',
-    props:['playlistName','artist1','artist2', 'artist3',],
+    props: ['playlistName', 'artist1', 'artist2', 'artist3', 'playlistImg', 'playlistDescription', 'episode', 'playlist'],
+    methods: {
+        background() {
+            if (this.playlist == 'session') {
+                return 'background-color: rgba(114, 49, 114, 0.7);'
+            }
+            if (this.playlist == 'country') {
+                return 'background-color: rgb(184,20,20);'
+            }
+            if (this.playlist == 'descobertas') {
+                return 'background-color: rgb(41,99,147);'
+            }
+            if (this.playlist == 'curtidas') {
+                return 'background-color: rgba(31, 16, 79);'
+            }
+            if (this.playlist == 'episodios') {
+                return 'background-color: rgb(5, 131, 100);'
+            }
+            if (this.playlist == 'vibration') {
+                return 'background-color: rgba(237, 145, 33, 0.8);'
+            }
+            if (this.playlist == 'nothing') {
+                return 'background-color: rgba(102, 100, 100, 0.8);'
+            }
+            if (this.playlist == 'indie') {
+                return 'background-color: rgba(255, 20, 147, 0.7);'
+            }
+            if (this.playlist == 'relax') {
+                return 'background-color: rgb(98, 150, 137);'
+            }
+            if (this.playlist == 'metal') {
+                return 'background-color: rgb(10, 72, 143);'
+            }
+            if (this.playlist == 'daily') {
+                return 'background-color: rgb(69, 109, 46);'
+            }
+        },
+        backgroundBtn() {
+            if (this.playlist == 'session') {
+                return 'background-color: rgb(66, 27, 66);'
+            }
+            if (this.playlist == 'country') {
+                return 'background-color: rgb(141, 14, 14);'
+            }
+            if (this.playlist == 'descobertas') {
+                return 'background-color: rgb(24, 69, 105);'
+            }
+            if (this.playlist == 'curtidas') {
+                return 'background-color: rgb(22, 12, 56);'
+            }
+            if (this.playlist == 'episodios') {
+                return 'background-color: rgb(5, 104, 79);'
+            }
+            if (this.playlist == 'vibration') {
+                return 'background-color: rgba(173, 105, 22, 0.8);'
+            }
+            if (this.playlist == 'nothing') {
+                return 'background-color:  rgb(71, 70, 70);'
+            }
+            if (this.playlist == 'indie') {
+                return 'background-color:  rgb(148, 13, 85);'
+            }
+            if (this.playlist == 'relax') {
+                return 'background-color:  rgb(71, 110, 101);'
+            }
+            if (this.playlist == 'metal') {
+                return 'background-color:  rgb(6, 43, 85);'
+            }
+            if (this.playlist == 'daily') {
+                return 'background-color:  rgb(50, 78, 34);'
+            }
+           
+            
+        },
+        backgroundDivColumns() {
+            if (this.playlist == 'session') {
+               return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66), var(--div-background));'
+            }
+            if (this.playlist == 'country') {
+               return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14), var(--div-background));'
+            }
+            if (this.playlist == 'descobertas') {
+               return 'background-image: linear-gradient(to bottom, rgb(24, 69, 105), var(--div-background));'
+            }
+            if (this.playlist == 'curtidas') {
+               return 'background-image: linear-gradient(to bottom, rgb(22, 12, 56), var(--div-background));'
+            }
+            if (this.playlist == 'episodios') {
+               return 'background-image: linear-gradient(to bottom, rgb(5, 104, 79), var(--div-background));'
+            }
+            if (this.playlist == 'vibration') {
+               return 'background-image: linear-gradient(to bottom, rgba(173, 105, 22, 0.8), var(--div-background));'
+            }
+            if (this.playlist == 'nothing') {
+               return 'background-image: linear-gradient(to bottom, rgb(71, 70, 70), var(--div-background));'
+            }
+            if (this.playlist == 'indie') {
+               return 'background-image: linear-gradient(to bottom, rgb(148, 13, 85), var(--div-background));'
+            }
+            if (this.playlist == 'relax') {
+               return 'background-image: linear-gradient(to bottom, rgb(71, 110, 101), var(--div-background));'
+            }
+            if (this.playlist == 'metal') {
+               return 'background-image: linear-gradient(to bottom, rgb(6, 43, 85), var(--div-background));'
+            }
+            if (this.playlist == 'daily') {
+               return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34), var(--div-background));'
+            }
+        }
+    }
 }
 
 </script>
@@ -114,7 +231,7 @@ export default {
 }
 
 .window {
-    background-color: rgba(255, 20, 147, 0.6);
+    background-color: rgb(50, 78, 34);
     border-radius: 10px;
 }
 
@@ -128,6 +245,7 @@ export default {
     width: 13vw;
     height: 13vw;
     border-radius: 5px;
+    box-shadow: 0px 0px 69px -5px rgba(0, 0, 0, 0.74);
 }
 
 .playlist-info>div {
@@ -141,11 +259,20 @@ export default {
 
 .playlist-type {
     font-size: 0.8em;
+    margin-top: 3vh;
 }
 
 .playlist-name {
-    font-size: 4.5em;
+    font-size: 2.5em;
     font-weight: 700;
+}
+
+.description {
+    padding: 0;
+    font-size: 0.8em;
+    color: var(--font-color);
+    font-weight: 500;
+    padding-bottom: 1vh;
 }
 
 .playlist-artist {
@@ -153,7 +280,7 @@ export default {
     gap: 1vh;
     font-size: 0.8em;
     margin-top: 2vh;
-    color: #a8a8a8;
+    color: #cac2c2;
 }
 
 .playlist-artist>div:not(:last-child) {
@@ -170,7 +297,7 @@ export default {
     align-items: center;
     gap: 1vh;
     font-size: 0.8em;
-    color: #a8a8a8;
+    color: #cac2c2;
 
 }
 
@@ -197,7 +324,7 @@ export default {
 
 .btn-container {
     display: flex;
-    background-color: rgb(124, 1, 70);
+    background-color:rgb(22, 12, 56);
     height: 15vh;
     padding: 2vh 1vw 0 1vw;
     justify-content: space-between;
@@ -221,11 +348,13 @@ export default {
     font-size: 0.9em;
     padding-top: 2vh;
 }
-.search-container>div{
+
+.search-container>div {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
+
 .search-container>div:hover {
     color: var(--font-color-hover);
 }
@@ -235,8 +364,9 @@ export default {
     padding: 0.5vh;
     border-radius: 50%;
 }
+
 .search:hover {
-    background-color:#ffffff3d;
+    background-color: #ffffff3d;
 }
 
 .play-btn {
@@ -284,7 +414,7 @@ export default {
 .columns-container {
     margin-top: -2vh;
     height: 15vh;
-    background-image: linear-gradient(to bottom, rgb(124, 1, 70), var(--div-background));
+    /* background-image: linear-gradient(to bottom, rgb(66, 27, 66), var(--div-background)); */
 }
 
 .teste {
@@ -325,5 +455,4 @@ export default {
     cursor: pointer;
     color: var(--font-color-hover);
     text-decoration: none;
-}
-</style>
+}</style>

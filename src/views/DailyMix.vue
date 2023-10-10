@@ -1,6 +1,7 @@
 <template>
     <div>
-        <playlist playlistName="Daily Mix 1"  artist1="Nothing But Thieves" artist2="Two Door Cinema Club"/>
+        <playlist playlistName="Daily Mix 1"  artist1="Nothing But Thieves" artist2="Two Door Cinema Club" playlist="daily"
+        :playlistImg="require('@/assets/daily-mix.png')"/>
     </div>
 </template>]
 <script>

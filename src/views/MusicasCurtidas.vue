@@ -1,6 +1,6 @@
 <template>
     <div>
-        <playlist playlistName="Músicas Curtidas" />
+        <playlist playlistName="Músicas Curtidas" :playlistImg="require('@/assets/musicas-curtidas.png')" playlist="curtidas" />
     </div>
 </template>
 <script>

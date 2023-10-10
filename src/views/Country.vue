@@ -1,6 +1,6 @@
 <template>
     <div>
-        <playlist playlistName="Fucking Country Music" />
+        <playlist playlistName="Fucking Country Music" :playlistImg="require('@/assets/country.png')" playlist="country"/>
     </div>
 </template>
 <script>

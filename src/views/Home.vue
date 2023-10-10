@@ -207,7 +207,7 @@ export default {
                 return 'background-image: linear-gradient(to bottom, rgba(114, 49, 114, 0.7), rgba(114, 49, 114, 0.60), rgba(114, 49, 114, 0.50), rgba(114, 49, 114, 0.20), rgba(114, 49, 114, 0.10), var(--div-background));'
             }
             if (this.playlist == 'descobertas') {
-                return 'background-image: linear-gradient(to bottom, rgba(255, 72, 0, 0.7), rgba(255, 72, 0, 0.60), rgba(255, 72, 0, 0.50), rgba(255, 72, 0, 0.20), rgba(255, 72, 0, 0.10), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgba(41,99,147, 0.7), rgba(41,99,147, 0.60), rgba(41,99,147, 0.50), rgba(41,99,147, 0.20), rgba(41,99,147, 0.10), var(--div-background));'
             }
         },
     },

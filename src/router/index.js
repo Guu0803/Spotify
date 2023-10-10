@@ -10,6 +10,8 @@ import MusicasCurtidas from '@/views/MusicasCurtidas.vue'
 import Sessions from '@/views/Sessions.vue'
 import Country from '@/views/Country.vue'
 import NothingButThieves from '@/views/NothingBut.vue'
+import SeusEpisodios from '@/views/SeusEpisodios.vue'
+
 const routes = [
   {
     path: '/',
@@ -65,6 +67,11 @@ const routes = [
     path:'/this-is-nothing-but-thieves',
     name:'nothingPage',
     component: NothingButThieves
+  },
+  {
+    path:'/seus-episodios',
+    name:'episodiosPage',
+    component: SeusEpisodios
   },
 ]
 
