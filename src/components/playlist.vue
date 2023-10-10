@@ -27,8 +27,15 @@
                     {{ playlistDescription }}
                 </div>
                 <div class="info">
-                    <img src="@/assets/spotify-icon.png">
-                    Feito para
+                    <img src="@/assets/img-user.png" class="img-user"
+                        v-if="playlist == 'curtidas' || playlist == 'episodios' || playlist == 'country' || playlist == 'vibration'">
+                    <div
+                        v-if="(playlist != 'episodios' && playlist != 'curtidas' && playlist != 'country' && playlist != 'vibration') || enriquecer == true">
+                        <img src="@/assets/spotify-icon.png" class="spotify-icon">
+                        <div style="color:#cac2c2 ;">
+                            Feito para
+                        </div>
+                    </div>
                     <div>
                         <div class="user">
                             Gustavo Nogueira
@@ -53,13 +60,26 @@
                     <span class="material-icons play-btn">
                         play_arrow
                     </span>
-                    <span class="material-symbols-sharp like">
+                    <div v-if="playlist == 'country' || playlist == 'vibration'">
+                        <div class="enrich" v-if="enriquecer == false">
+                            Enriquecer
+                        </div>
+                        <div class="enrich" v-else>
+                            <img src="@/assets/brilho.png">
+                            Enriquecida
+                        </div>
+                    </div>
+                    <span class="material-symbols-sharp like"
+                        v-if="playlist != 'episodios' && playlist != 'curtidas' && playlist != 'country' && playlist != 'vibration'">
                         favorite
                     </span>
-                    <span class="material-symbols-sharp download">
+                    <span class="material-symbols-sharp download" v-if="playlist != 'episodios'">
                         south
                     </span>
-                    <span class="material-symbols-sharp like">
+                    <span class="material-symbols-sharp collaborators" v-if="playlist == 'country' || playlist == 'vibration'">
+                        person_add
+                    </span>
+                    <span class="material-symbols-sharp like" v-if="playlist != 'episodios' && playlist != 'curtidas'">
                         more_horiz
                     </span>
                 </div>
@@ -102,10 +122,14 @@
     </div>
 </template>
 <script>
-
 export default {
     name: 'indiePage',
     props: ['playlistName', 'artist1', 'artist2', 'artist3', 'playlistImg', 'playlistDescription', 'episode', 'playlist'],
+    data() {
+        return {
+            enriquecer: false
+        }
+    },
     methods: {
         background() {
             if (this.playlist == 'session') {
@@ -176,47 +200,45 @@ export default {
             if (this.playlist == 'daily') {
                 return 'background-color:  rgb(50, 78, 34);'
             }
-           
-            
+
         },
         backgroundDivColumns() {
             if (this.playlist == 'session') {
-               return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66), var(--div-background));'
             }
             if (this.playlist == 'country') {
-               return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14), var(--div-background));'
             }
             if (this.playlist == 'descobertas') {
-               return 'background-image: linear-gradient(to bottom, rgb(24, 69, 105), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(24, 69, 105), var(--div-background));'
             }
             if (this.playlist == 'curtidas') {
-               return 'background-image: linear-gradient(to bottom, rgb(22, 12, 56), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(22, 12, 56), var(--div-background));'
             }
             if (this.playlist == 'episodios') {
-               return 'background-image: linear-gradient(to bottom, rgb(5, 104, 79), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(5, 104, 79), var(--div-background));'
             }
             if (this.playlist == 'vibration') {
-               return 'background-image: linear-gradient(to bottom, rgba(173, 105, 22, 0.8), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgba(173, 105, 22, 0.8), var(--div-background));'
             }
             if (this.playlist == 'nothing') {
-               return 'background-image: linear-gradient(to bottom, rgb(71, 70, 70), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(71, 70, 70), var(--div-background));'
             }
             if (this.playlist == 'indie') {
-               return 'background-image: linear-gradient(to bottom, rgb(148, 13, 85), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(148, 13, 85), var(--div-background));'
             }
             if (this.playlist == 'relax') {
-               return 'background-image: linear-gradient(to bottom, rgb(71, 110, 101), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(71, 110, 101), var(--div-background));'
             }
             if (this.playlist == 'metal') {
-               return 'background-image: linear-gradient(to bottom, rgb(6, 43, 85), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(6, 43, 85), var(--div-background));'
             }
             if (this.playlist == 'daily') {
-               return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34), var(--div-background));'
             }
         }
     }
 }
-
 </script>
 <style scoped>
 :root {
@@ -239,6 +261,7 @@ export default {
     display: flex;
     gap: 2vw;
     padding: 10vh 1vw 3vh 1vw;
+    align-items: center;
 }
 
 .img-thumb {
@@ -246,6 +269,13 @@ export default {
     height: 13vw;
     border-radius: 5px;
     box-shadow: 0px 0px 69px -5px rgba(0, 0, 0, 0.74);
+}
+
+.img-user {
+    height: 3.5vh;
+    border-radius: 50%;
+    padding: 0;
+    z-index: 1;
 }
 
 .playlist-info>div {
@@ -298,13 +328,12 @@ export default {
     gap: 1vh;
     font-size: 0.8em;
     color: #cac2c2;
-
 }
 
 .info>div {
     display: flex;
-    align-items: center;
     gap: 1vh;
+    align-items: center;
     color: var(--font-color-hover);
 }
 
@@ -324,11 +353,42 @@ export default {
 
 .btn-container {
     display: flex;
-    background-color:rgb(22, 12, 56);
+    background-color: rgb(22, 12, 56);
     height: 15vh;
     padding: 2vh 1vw 0 1vw;
     justify-content: space-between;
+}
 
+.enrich {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    color: var(--font-color-hover);
+    font-weight: 500;
+    border-radius: 20px;
+    border: 2px solid var(--font-color);
+    padding: 1vh;
+    font-size: 0.9em;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.enrich:hover {
+    scale: 1.05;
+    border-color: var(--font-color-hover);
+    transition: ease-in-out 100ms;
+}
+
+.collaborators {
+    transform: scaleX(-1);
+    color: var(--font-color);
+    font-size: 2.5em;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.collaborators:hover {
+    color: var(--font-color-hover);
 }
 
 .btns,
@@ -339,7 +399,7 @@ export default {
 }
 
 .btns {
-    gap: 2vw;
+    gap: 1.5vw;
 }
 
 .search-container {

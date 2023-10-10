@@ -6,38 +6,90 @@
             </div>
             <div class="playlist-container">
                 <div class="playlist-collumn">
-                    <div class="playlist" v-on:mouseover="curtidas()" v-on:mouseleave="backgroundOff()" v-on:click="toMusicasCurtidas()">
+                    <div class="playlist" v-on:mouseover="curtidas()" v-on:mouseleave="backgroundOff()"
+                        v-on:click="toMusicasCurtidas()">
                         <img src="@/assets/musicas-curtidas.png" class="
                     img-thumb">
                         Músicas Curtidas
+                        <div class="bnt-playlist-container">
+                            <span class="material-icons play-btn-playlist">
+                                play_arrow
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                                pause
+                            </span>
+                        </div>
                     </div>
                     <div class="playlist" v-on:mouseover="indie()" v-on:mouseleave="backgroundOff()" v-on:click="toIndie()">
                         <img src="@/assets/thumb-mix-indie.png" class="
                     img-thumb">
                         Mix Indie
+                        <div class="bnt-playlist-container">
+                            <span class="material-icons play-btn-playlist">
+                                play_arrow
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                                pause
+                            </span>
+                        </div>
                     </div>
-                    <div class="playlist" v-on:mouseover="indieVibration()" v-on:mouseleave="backgroundOff()" v-on:click="toIndieVibration()" >
+                    <div class="playlist" v-on:mouseover="indieVibration()" v-on:mouseleave="backgroundOff()"
+                        v-on:click="toIndieVibration()">
                         <img src="@/assets/indie.png" class="
                     img-thumb">
                         Indie Vibration
+                        <div class="bnt-playlist-container">
+                            <span class="material-icons play-btn-playlist">
+                                play_arrow
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                                pause
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="playlist-collumn">
-                    <div class="playlist" v-on:mouseover="country()" v-on:mouseleave="backgroundOff()" v-on:click="toCountry()">
+                    <div class="playlist" v-on:mouseover="country()" v-on:mouseleave="backgroundOff()"
+                        v-on:click="toCountry()">
                         <img src="@/assets/country.png" class="
                     img-thumb">
                         Fucking Country Music
+                        <div class="bnt-playlist-container">
+                            <span class="material-icons play-btn-playlist">
+                                play_arrow
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                                pause
+                            </span>
+                        </div>
                     </div>
-                    <div class="playlist" v-on:mouseover="sessions()" v-on:mouseleave="backgroundOff()" v-on:click="toSessions()">
+                    <div class="playlist" v-on:mouseover="sessions()" v-on:mouseleave="backgroundOff()"
+                        v-on:click="toSessions()">
                         <img src="@/assets/session.png" class="
                     img-thumb">
                         Sessions
+                        <div class="bnt-playlist-container">
+                            <span class="material-icons play-btn-playlist">
+                                play_arrow
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                                pause
+                            </span>
+                        </div>
                     </div>
                     <div class="playlist" v-on:mouseover="descobertas()" v-on:mouseleave="backgroundOff()"
                         v-on:click="toDescobertas()">
                         <img src="@/assets/descobertas.png" class="
                     img-thumb">
                         Descobertas da Semana
+                        <div class="bnt-playlist-container">
+                            <span class="material-icons play-btn-playlist">
+                                play_arrow
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                                pause
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,13 +194,13 @@ export default {
         }
     },
     methods: {
-        toCountry(){
+        toCountry() {
             this.$router.push('/country')
         },
-        toSessions(){
+        toSessions() {
             this.$router.push('/sessions')
         },
-        toMusicasCurtidas(){
+        toMusicasCurtidas() {
             this.$router.push('/musicas-curtidas')
         },
         toMixRelax() {
@@ -245,6 +297,7 @@ export default {
     display: flex;
     width: 100%;
     gap: 1vw;
+
 }
 
 .playlist-collumn {
@@ -264,11 +317,35 @@ export default {
     align-items: center;
     gap: 1vw;
     background: #a7a7a730;
+    position: relative;
+}
+.bnt-playlist-container{
+    display:none;
+    right: 1vw;
+    position: absolute;
+}
+.play-btn-playlist {
+    padding: 1vh;
+    background-color: #1ed760;
+    border-radius: 50%;
+    font-size: 2.5em;
+    cursor: pointer;
+    color: #000;
+    box-shadow: 0px 25px 28px -11px rgba(0, 0, 0, 0.75);
+}
+
+.play-btn-playlist:hover {
+    scale: 1.1;
+    transition: ease-in-out 100ms;
 }
 
 .playlist:hover {
     background: #a7a7a760;
     cursor: pointer;
+}
+
+.playlist:hover>.bnt-playlist-container {
+    display: block;
 }
 
 .img-thumb {
@@ -332,6 +409,7 @@ export default {
     right: 2vw;
     z-index: 2;
     display: none;
+    box-shadow: 0px 25px 28px -11px rgba(0, 0, 0, 0.75);
 }
 
 .play-btn:hover {
