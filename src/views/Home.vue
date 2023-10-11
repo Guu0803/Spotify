@@ -11,12 +11,13 @@
                         <img src="@/assets/musicas-curtidas.png" class="
                     img-thumb">
                         Músicas Curtidas
-                        <div class="bnt-playlist-container">
-                            <span class="material-icons play-btn-playlist">
-                                play_arrow
-                            </span>
-                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                        <div class="bnt-playlist-container" v-on:click.stop="playCurtidas()" :style="playingNowCurtidas()">
+                            <span class="material-icons play-btn-playlist" v-if="play == 'musicasCurtidas'"
+                                v-on:click.stop="pause()">
                                 pause
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-else>
+                                play_arrow
                             </span>
                         </div>
                     </div>
@@ -24,12 +25,13 @@
                         <img src="@/assets/thumb-mix-indie.png" class="
                     img-thumb">
                         Mix Indie
-                        <div class="bnt-playlist-container">
-                            <span class="material-icons play-btn-playlist">
-                                play_arrow
-                            </span>
-                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                        <div class="bnt-playlist-container" v-on:click.stop="playIndie()" :style="playingNowIndie()">
+                            <span class="material-icons play-btn-playlist" v-if="play == 'mixIndie'"
+                                v-on:click.stop="pause()">
                                 pause
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-else>
+                                play_arrow
                             </span>
                         </div>
                     </div>
@@ -38,12 +40,14 @@
                         <img src="@/assets/indie.png" class="
                     img-thumb">
                         Indie Vibration
-                        <div class="bnt-playlist-container">
-                            <span class="material-icons play-btn-playlist">
-                                play_arrow
-                            </span>
-                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                        <div class="bnt-playlist-container" v-on:click.stop="playVibration()"
+                            :style="playingNowVibration()">
+                            <span class="material-icons play-btn-playlist" v-if="play == 'indieVibration'"
+                                v-on:click.stop="pause()">
                                 pause
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-else>
+                                play_arrow
                             </span>
                         </div>
                     </div>
@@ -54,12 +58,13 @@
                         <img src="@/assets/country.png" class="
                     img-thumb">
                         Fucking Country Music
-                        <div class="bnt-playlist-container">
-                            <span class="material-icons play-btn-playlist">
-                                play_arrow
-                            </span>
-                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                        <div :style="playingNowCountry()" class="bnt-playlist-container" v-on:click.stop="playCountry()">
+                            <span class="material-icons play-btn-playlist" v-if="play == 'countryMusic'"
+                                v-on:click.stop="pause()">
                                 pause
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-else>
+                                play_arrow
                             </span>
                         </div>
                     </div>
@@ -68,12 +73,13 @@
                         <img src="@/assets/session.png" class="
                     img-thumb">
                         Sessions
-                        <div class="bnt-playlist-container">
-                            <span class="material-icons play-btn-playlist">
-                                play_arrow
-                            </span>
-                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                        <div class="bnt-playlist-container" v-on:click.stop="playSessions()" :style="playingNowSession()">
+                            <span class="material-icons play-btn-playlist" v-if="play == 'sessionMix'"
+                                v-on:click.stop="pause()">
                                 pause
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-else>
+                                play_arrow
                             </span>
                         </div>
                     </div>
@@ -82,12 +88,14 @@
                         <img src="@/assets/descobertas.png" class="
                     img-thumb">
                         Descobertas da Semana
-                        <div class="bnt-playlist-container">
-                            <span class="material-icons play-btn-playlist">
-                                play_arrow
-                            </span>
-                            <span class="material-icons play-btn-playlist" v-if="play == true">
+                        <div :style="playingNowDescobertas()" class="bnt-playlist-container"
+                            v-on:click.stop="playDescobertas()">
+                            <span class="material-icons play-btn-playlist" v-if="play == 'descobertasSemana'"
+                                v-on:click.stop="pause()">
                                 pause
+                            </span>
+                            <span class="material-icons play-btn-playlist" v-else>
+                                play_arrow
                             </span>
                         </div>
                     </div>
@@ -190,10 +198,69 @@ export default {
     name: 'homePage',
     data() {
         return {
-            playlist: ''
+            playlist: '',
+            play: '',
+            playingNow: ''
         }
     },
     methods: {
+        playingNowCurtidas() {
+            if (this.playingNow == 'musicasCurtidas') {
+                return 'display:block;'
+            }
+        },
+        playingNowIndie() {
+            if (this.playingNow == 'mixIndie') {
+                return 'display:block;'
+            }
+        },
+        playingNowVibration() {
+            if (this.playingNow == 'indieVibration') {
+                return 'display:block;'
+            }
+        },
+        playingNowCountry() {
+            if (this.playingNow == 'countryMusic') {
+                return 'display:block;'
+            }
+        },
+        playingNowSession() {
+            if (this.playingNow == 'sessionMix') {
+                return 'display:block;'
+            }
+        },
+        playingNowDescobertas() {
+            if (this.playingNow == 'descobertasSemana') {
+                return 'display:block;'
+            }
+        },
+        playCountry() {
+            this.play = 'countryMusic'
+            this.playingNow = 'countryMusic'
+        },
+        pause() {
+            this.play = ''
+        },
+        playDescobertas() {
+            this.play = 'descobertasSemana'
+            this.playingNow = 'descobertasSemana'
+        },
+        playCurtidas() {
+            this.play = 'musicasCurtidas'
+            this.playingNow = 'musicasCurtidas'
+        },
+        playIndie() {
+            this.play = 'mixIndie'
+            this.playingNow = 'mixIndie'
+        },
+        playVibration() {
+            this.play = 'indieVibration'
+            this.playingNow = 'indieVibration'
+        },
+        playSessions() {
+            this.play = 'sessionMix'
+            this.playingNow = 'sessionMix'
+        },
         toCountry() {
             this.$router.push('/country')
         },
@@ -263,7 +330,6 @@ export default {
             }
         },
     },
-
 }
 </script>
 <style scoped>
@@ -319,11 +385,13 @@ export default {
     background: #a7a7a730;
     position: relative;
 }
-.bnt-playlist-container{
-    display:none;
+
+.bnt-playlist-container {
+    display: none;
     right: 1vw;
     position: absolute;
 }
+
 .play-btn-playlist {
     padding: 1vh;
     background-color: #1ed760;
@@ -377,7 +445,7 @@ export default {
     display: flex;
     gap: 1.5vw;
     align-items: center;
-    margin: 0 1vw;
+    margin: 0 1vw 5vh 1vw;
 }
 
 .recommendation-card {
@@ -450,5 +518,4 @@ export default {
     display: flex;
     gap: 1vh;
     flex-wrap: wrap;
-}
-</style>
+}</style>
