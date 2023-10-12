@@ -127,8 +127,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container">
-                    <span class="material-icons play-btn">
+                <div class="play-container" v-on:click.stop="playIndie()" :style="playingNowIndie()">
+                    <span class="material-icons play-btn" v-if="play == 'mixIndie'" v-on:click.stop="pause()">
+                        pause
+                    </span>
+                    <span class="material-icons play-btn" v-else>
                         play_arrow
                     </span>
                 </div>
@@ -146,8 +149,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container">
-                    <span class="material-icons play-btn">
+                <div class="play-container" v-on:click.stop="playMetal()" :style="playingNowMetal()">
+                    <span class="material-icons play-btn" v-if="play == 'mixMetal'" v-on:click.stop="pause()">
+                        pause
+                    </span>
+                    <span class="material-icons play-btn" v-else>
                         play_arrow
                     </span>
                 </div>
@@ -165,8 +171,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container">
-                    <span class="material-icons play-btn">
+                <div class="play-container" v-on:click.stop="playDaily()" :style="playingNowDaily()">
+                    <span class="material-icons play-btn" v-if="play == 'mixDaily'" v-on:click.stop="pause()">
+                        pause
+                    </span>
+                    <span class="material-icons play-btn" v-else>
                         play_arrow
                     </span>
                 </div>
@@ -184,8 +193,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container">
-                    <span class="material-icons play-btn">
+                <div class="play-container" v-on:click.stop="playRelax()" :style="playingNowRelax()">
+                    <span class="material-icons play-btn" v-if="play == 'mixRelax'" v-on:click.stop="pause()">
+                        pause
+                    </span>
+                    <span class="material-icons play-btn" v-else>
                         play_arrow
                     </span>
                 </div>
@@ -204,6 +216,11 @@ export default {
         }
     },
     methods: {
+        playingNowMetal(){
+            if(this.playingNow == 'mixMetal'){
+                return 'display:block;'
+            }
+        },
         playingNowCurtidas() {
             if (this.playingNow == 'musicasCurtidas') {
                 return 'display:block;'
@@ -224,6 +241,11 @@ export default {
                 return 'display:block;'
             }
         },
+        playingNowDaily(){
+            if (this.playingNow == 'mixDaily') {
+                return 'display:block;'
+            }
+        },
         playingNowSession() {
             if (this.playingNow == 'sessionMix') {
                 return 'display:block;'
@@ -234,9 +256,26 @@ export default {
                 return 'display:block;'
             }
         },
+        playingNowRelax(){
+            if (this.playingNow == 'mixRelax') {
+                return 'display:block;'
+            }
+        },
         playCountry() {
             this.play = 'countryMusic'
             this.playingNow = 'countryMusic'
+        },
+        playDaily(){
+            this.play = 'mixDaily'
+            this.playingNow = 'mixDaily'
+        },
+        playRelax(){
+            this.play = 'mixRelax'
+            this.playingNow = 'mixRelax'
+        },
+        playMetal(){
+            this.play = 'mixMetal'
+            this.playingNow = 'mixMetal'
         },
         pause() {
             this.play = ''
@@ -274,7 +313,7 @@ export default {
             this.$router.push('/mix-relax')
         },
         toMixMetal() {
-            this.$router.push('/mix-metal')
+            this.$router.push('/mix-Daily')
         },
         toIndieVibration() {
             this.$router.push('/indie-vibration')
@@ -463,8 +502,8 @@ export default {
 .recommendation-card:hover {
     background-color: var(--background-highlight);
     transition: ease-in-out;
-
 }
+
 
 .play-btn {
     padding: 1vh;
@@ -476,12 +515,11 @@ export default {
     top: 16vh;
     right: 2vw;
     z-index: 2;
-    display: none;
     box-shadow: 0px 25px 28px -11px rgba(0, 0, 0, 0.75);
 }
 
 .play-btn:hover {
-    scale: 1.2;
+    scale: 1.1;
     transition: ease-in-out;
 }
 
@@ -490,9 +528,10 @@ export default {
     width: 100%;
     height: 98%;
     z-index: 0;
+    display: none;
 }
 
-.play-container:hover>.play-btn {
+.recommendation-card:hover>.play-container {
     display: block;
 }
 
@@ -518,4 +557,5 @@ export default {
     display: flex;
     gap: 1vh;
     flex-wrap: wrap;
-}</style>
+}
+</style>

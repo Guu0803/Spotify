@@ -11,6 +11,7 @@ import Sessions from '@/views/Sessions.vue'
 import Country from '@/views/Country.vue'
 import NothingButThieves from '@/views/NothingBut.vue'
 import SeusEpisodios from '@/views/SeusEpisodios.vue'
+import teste from  '@/views/teste.vue'
 
 const routes = [
   {
@@ -72,6 +73,11 @@ const routes = [
     path:'/seus-episodios',
     name:'episodiosPage',
     component: SeusEpisodios
+  },
+  {
+    path:'/teste',
+    name:'testePage',
+    component: teste
   },
 ]
 

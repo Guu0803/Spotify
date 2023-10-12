@@ -54,8 +54,8 @@
                 </div>
             </div>
         </div>
-        <div class="playlist-header">
-            <div class="btn-container" :style="backgroundBtn()">
+        <div class="playlist-header" :style="backgroundPlaylistHeader()">
+            <div class="btn-container">
                 <div class="btns">
                     <span class="material-icons play-btn">
                         play_arrow
@@ -76,7 +76,8 @@
                     <span class="material-symbols-sharp download" v-if="playlist != 'episodios'">
                         south
                     </span>
-                    <span class="material-symbols-sharp collaborators" v-if="playlist == 'country' || playlist == 'vibration'">
+                    <span class="material-symbols-sharp collaborators"
+                        v-if="playlist == 'country' || playlist == 'vibration'">
                         person_add
                     </span>
                     <span class="material-symbols-sharp like" v-if="playlist != 'episodios' && playlist != 'curtidas'">
@@ -95,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <div class="columns-container" :style="backgroundDivColumns()">
+            <div class="columns-container">
                 <div class="columns">
                     <div class="number">
                         #
@@ -117,6 +118,35 @@
                 </div>
             </div>
             <div class="teste">
+                <div class="music">
+                    <div class="music-number">
+                        1
+                    </div>
+                    <div class="music-title">
+                        <img src="@/assets/album-teste.png" class="thumb">
+                        <div>
+                            Hearstring
+                            <div class="music-artist">
+                                Jacob Lee
+                            </div>
+                        </div>
+                    </div>
+                    <div class="album1">
+                        Hearstring
+                    </div>
+                    <div class="add">
+                        Adiconado
+                    </div>
+                    <span class="material-symbols-sharp favorite">
+                        favorite
+                    </span>
+                    <div class="time">
+                        3:08
+                    </div>
+                    <span class="material-symbols-sharp horiz">
+                        more_horiz
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -166,75 +196,39 @@ export default {
                 return 'background-color: rgb(69, 109, 46);'
             }
         },
-        backgroundBtn() {
+        backgroundPlaylistHeader() {
             if (this.playlist == 'session') {
-                return 'background-color: rgb(66, 27, 66);'
+                return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'country') {
-                return 'background-color: rgb(141, 14, 14);'
+                return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'descobertas') {
-                return 'background-color: rgb(24, 69, 105);'
+                return 'background-image: linear-gradient(to bottom, rgb(24, 69, 105) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'curtidas') {
-                return 'background-color: rgb(22, 12, 56);'
+                return 'background-image: linear-gradient(to bottom, rgb(22, 12, 56) 10%, var(--div-background) 70%)'
             }
             if (this.playlist == 'episodios') {
-                return 'background-color: rgb(5, 104, 79);'
+                return 'background-image: linear-gradient(to bottom, rgb(5, 104, 79) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'vibration') {
-                return 'background-color: rgba(173, 105, 22, 0.8);'
+                return 'background-image: linear-gradient(to bottom, rgba(173, 105, 22, 0.8) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'nothing') {
-                return 'background-color:  rgb(71, 70, 70);'
+                return 'background-image: linear-gradient(to bottom, rgb(71, 70, 70) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'indie') {
-                return 'background-color:  rgb(148, 13, 85);'
+                return 'background-image: linear-gradient(to bottom, rgb(148, 13, 85) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'relax') {
-                return 'background-color:  rgb(71, 110, 101);'
+                return 'background-image: linear-gradient(to bottom, rgb(71, 110, 101) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'metal') {
-                return 'background-color:  rgb(6, 43, 85);'
+                return 'background-image: linear-gradient(to bottom, rgb(6, 43, 85) 10%, var(--div-background) 70%);'
             }
             if (this.playlist == 'daily') {
-                return 'background-color:  rgb(50, 78, 34);'
-            }
-
-        },
-        backgroundDivColumns() {
-            if (this.playlist == 'session') {
-                return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66), var(--div-background));'
-            }
-            if (this.playlist == 'country') {
-                return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14), var(--div-background));'
-            }
-            if (this.playlist == 'descobertas') {
-                return 'background-image: linear-gradient(to bottom, rgb(24, 69, 105), var(--div-background));'
-            }
-            if (this.playlist == 'curtidas') {
-                return 'background-image: linear-gradient(to bottom, rgb(22, 12, 56), var(--div-background));'
-            }
-            if (this.playlist == 'episodios') {
-                return 'background-image: linear-gradient(to bottom, rgb(5, 104, 79), var(--div-background));'
-            }
-            if (this.playlist == 'vibration') {
-                return 'background-image: linear-gradient(to bottom, rgba(173, 105, 22, 0.8), var(--div-background));'
-            }
-            if (this.playlist == 'nothing') {
-                return 'background-image: linear-gradient(to bottom, rgb(71, 70, 70), var(--div-background));'
-            }
-            if (this.playlist == 'indie') {
-                return 'background-image: linear-gradient(to bottom, rgb(148, 13, 85), var(--div-background));'
-            }
-            if (this.playlist == 'relax') {
-                return 'background-image: linear-gradient(to bottom, rgb(71, 110, 101), var(--div-background));'
-            }
-            if (this.playlist == 'metal') {
-                return 'background-image: linear-gradient(to bottom, rgb(6, 43, 85), var(--div-background));'
-            }
-            if (this.playlist == 'daily') {
-                return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34), var(--div-background));'
+                return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34) 10%, var(--div-background) 70%);'
             }
         }
     }
@@ -353,8 +347,7 @@ export default {
 
 .btn-container {
     display: flex;
-    background-color: rgb(22, 12, 56);
-    height: 15vh;
+    height: 10vh;
     padding: 2vh 1vw 0 1vw;
     justify-content: space-between;
 }
@@ -465,21 +458,10 @@ export default {
 .columns {
     display: flex;
     align-items: first baseline;
-    padding: 0 1vw;
+    padding: 1.5vh 1vw;
     border-bottom: 1px solid #a7a7a730;
     color: var(--font-color);
     font-size: 0.8em;
-}
-
-.columns-container {
-    margin-top: -2vh;
-    height: 15vh;
-    /* background-image: linear-gradient(to bottom, rgb(66, 27, 66), var(--div-background)); */
-}
-
-.teste {
-    height: 20vh;
-    background-color: var(--div-background);
 }
 
 .number {
@@ -496,12 +478,12 @@ export default {
 }
 
 .added {
-    width: 10vw;
+    width: 8vw;
     margin-right: 10vw;
 }
 
 .duration {
-    width: 3vw;
+    margin-right: 5vw;
 }
 
 .clock {
@@ -515,4 +497,70 @@ export default {
     cursor: pointer;
     color: var(--font-color-hover);
     text-decoration: none;
-}</style>
+}
+
+.teste {
+    height: 30vh;
+    padding: 1vh;
+    box-sizing: border-box;
+}
+
+.music {
+    display: flex;
+    align-items: center;
+    height: 9vh;
+    border-radius: 5px;
+}
+.music:hover{
+    background-color: #a7a7a730;
+}
+
+.music-number {
+    width: 3vw;
+    text-align: center;
+    color: var(--font-color);
+}
+
+.thumb {
+    height: 6.5vh;
+}
+
+.music-title {
+    color: var(--font-color-hover);
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    font-weight: 500;
+    width: 18vw;
+}
+
+.music-artist {
+    font-size: 0.9em;
+    color: var(--font-color);
+}
+.album1{
+    color: var(--font-color);
+    font-weight: 500;
+    width: 13.5vw;
+    font-size: 0.9em;
+}
+
+.add{
+    width: 9vw;
+    color: var(--font-color);
+    font-size: 0.9em;
+}
+.favorite{
+    color: var(--font-color);
+    width: 7vw;
+    padding-left: 1.5vw;
+    box-sizing: border-box;
+}
+.time{
+    color: var(--font-color);
+    margin-right: 2vw;
+}
+.horiz{
+    color: var(--font-color);
+}
+</style>
