@@ -127,13 +127,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container" v-on:click.stop="playIndie()" :style="playingNowIndie()">
-                    <span class="material-icons play-btn" v-if="play == 'mixIndie'" v-on:click.stop="pause()">
-                        pause
-                    </span>
-                    <span class="material-icons play-btn" v-else>
-                        play_arrow
-                    </span>
+                <div class="play-container" :style="playingNowIndie()">
+                    <div v-on:click.stop="playIndie()">
+                        <span class="material-icons play-btn" v-if="play == 'mixIndie'" v-on:click.stop="pause()">
+                            pause
+                        </span>
+                        <span class="material-icons play-btn" v-else>
+                            play_arrow
+                        </span>
+                    </div>
+
                 </div>
             </div>
             <div class="recommendation-card" v-on:click="toMixMetal()">
@@ -149,13 +152,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container" v-on:click.stop="playMetal()" :style="playingNowMetal()">
-                    <span class="material-icons play-btn" v-if="play == 'mixMetal'" v-on:click.stop="pause()">
-                        pause
-                    </span>
-                    <span class="material-icons play-btn" v-else>
-                        play_arrow
-                    </span>
+                <div class="play-container" :style="playingNowMetal()">
+                    <div v-on:click.stop="playMetal()">
+                        <span class="material-icons play-btn" v-if="play == 'mixMetal'" v-on:click.stop="pause()">
+                            pause
+                        </span>
+                        <span class="material-icons play-btn" v-else>
+                            play_arrow
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="recommendation-card" v-on:click="toDailyMix()">
@@ -171,13 +176,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container" v-on:click.stop="playDaily()" :style="playingNowDaily()">
-                    <span class="material-icons play-btn" v-if="play == 'mixDaily'" v-on:click.stop="pause()">
-                        pause
-                    </span>
-                    <span class="material-icons play-btn" v-else>
-                        play_arrow
-                    </span>
+                <div class="play-container" :style="playingNowDaily()">
+                    <div v-on:click.stop="playDaily()">
+                        <span class="material-icons play-btn" v-if="play == 'mixDaily'" v-on:click.stop="pause()">
+                            pause
+                        </span>
+                        <span class="material-icons play-btn" v-else>
+                            play_arrow
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="recommendation-card" v-on:click="toMixRelax()">
@@ -193,13 +200,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="play-container" v-on:click.stop="playRelax()" :style="playingNowRelax()">
-                    <span class="material-icons play-btn" v-if="play == 'mixRelax'" v-on:click.stop="pause()">
-                        pause
-                    </span>
-                    <span class="material-icons play-btn" v-else>
-                        play_arrow
-                    </span>
+                <div class="play-container"  :style="playingNowRelax()">
+                    <div v-on:click.stop="playRelax()">
+                        <span class="material-icons play-btn" v-if="play == 'mixRelax'" v-on:click.stop="pause()">
+                            pause
+                        </span>
+                        <span class="material-icons play-btn" v-else>
+                            play_arrow
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -216,8 +225,8 @@ export default {
         }
     },
     methods: {
-        playingNowMetal(){
-            if(this.playingNow == 'mixMetal'){
+        playingNowMetal() {
+            if (this.playingNow == 'mixMetal') {
                 return 'display:block;'
             }
         },
@@ -241,7 +250,7 @@ export default {
                 return 'display:block;'
             }
         },
-        playingNowDaily(){
+        playingNowDaily() {
             if (this.playingNow == 'mixDaily') {
                 return 'display:block;'
             }
@@ -256,7 +265,7 @@ export default {
                 return 'display:block;'
             }
         },
-        playingNowRelax(){
+        playingNowRelax() {
             if (this.playingNow == 'mixRelax') {
                 return 'display:block;'
             }
@@ -265,15 +274,15 @@ export default {
             this.play = 'countryMusic'
             this.playingNow = 'countryMusic'
         },
-        playDaily(){
+        playDaily() {
             this.play = 'mixDaily'
             this.playingNow = 'mixDaily'
         },
-        playRelax(){
+        playRelax() {
             this.play = 'mixRelax'
             this.playingNow = 'mixRelax'
         },
-        playMetal(){
+        playMetal() {
             this.play = 'mixMetal'
             this.playingNow = 'mixMetal'
         },
@@ -313,7 +322,7 @@ export default {
             this.$router.push('/mix-relax')
         },
         toMixMetal() {
-            this.$router.push('/mix-Daily')
+            this.$router.push('/mix-metal')
         },
         toIndieVibration() {
             this.$router.push('/indie-vibration')
