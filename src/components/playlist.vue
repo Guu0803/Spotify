@@ -117,43 +117,12 @@
                     </div>
                 </div>
             </div>
-            <div class="teste">
-                <div class="music">
-                    <div class="music-number">
-                        1
-                    </div>
-                    <div class="music-title">
-                        <img src="@/assets/album-teste.png" class="thumb">
-                        <div>
-                            Hearstring
-                            <div class="music-artist">
-                                Jacob Lee
-                            </div>
-                        </div>
-                    </div>
-                    <div class="album1">
-                        Hearstring
-                    </div>
-                    <div class="add">
-                        Adiconado
-                    </div>
-                    <span class="material-symbols-sharp favorite">
-                        favorite
-                    </span>
-                    <div class="time">
-                        3:08
-                    </div>
-                    <span class="material-symbols-sharp horiz">
-                        more_horiz
-                    </span>
-                </div>
-            </div>
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: 'indiePage',
+    name: 'playlistComponent',
     props: ['playlistName', 'artist1', 'artist2', 'artist3', 'playlistImg', 'playlistDescription', 'episode', 'playlist'],
     data() {
         return {
@@ -497,70 +466,5 @@ export default {
     cursor: pointer;
     color: var(--font-color-hover);
     text-decoration: none;
-}
-
-.teste {
-    height: 30vh;
-    padding: 1vh;
-    box-sizing: border-box;
-}
-
-.music {
-    display: flex;
-    align-items: center;
-    height: 9vh;
-    border-radius: 5px;
-}
-.music:hover{
-    background-color: #a7a7a730;
-}
-
-.music-number {
-    width: 3vw;
-    text-align: center;
-    color: var(--font-color);
-}
-
-.thumb {
-    height: 6.5vh;
-}
-
-.music-title {
-    color: var(--font-color-hover);
-    display: flex;
-    gap: 1vw;
-    align-items: center;
-    font-weight: 500;
-    width: 18vw;
-}
-
-.music-artist {
-    font-size: 0.9em;
-    color: var(--font-color);
-}
-.album1{
-    color: var(--font-color);
-    font-weight: 500;
-    width: 13.5vw;
-    font-size: 0.9em;
-}
-
-.add{
-    width: 9vw;
-    color: var(--font-color);
-    font-size: 0.9em;
-}
-.favorite{
-    color: var(--font-color);
-    width: 7vw;
-    padding-left: 1.5vw;
-    box-sizing: border-box;
-}
-.time{
-    color: var(--font-color);
-    margin-right: 2vw;
-}
-.horiz{
-    color: var(--font-color);
 }
 </style>

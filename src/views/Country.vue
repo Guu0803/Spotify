@@ -1,14 +1,33 @@
 <template>
-    <div>
-        <playlist playlistName="Fucking Country Music" :playlistImg="require('@/assets/country.png')" playlist="country"/>
+    <div class="window">
+        <playlist playlistName="Fucking Country Music" :playlistImg="require('@/assets/country.png')" playlist="country" />
+        <div v-for="(music, index) in countryMusic" :key="music">
+            <music  :songNumber=index+1 :name="music.name" :artist="music.artist" :album="music.album" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString()"/>
+        </div>
     </div>
 </template>
 <script>
 import playlist from '@/components/playlist.vue';
-export default{
-    name:'countryPage',
-    components:{
-        playlist
+import music from '@/components/music.vue'
+export default {
+    name: 'countryPage',
+    components: {
+        playlist,
+        music
+    },
+    data() {
+        return {
+            countryMusic: [],
+        }
+    },
+    created() {
+        this.countryMusic = this.$store.state.playlistCountry
     }
 }
 </script>
+<style scoped>
+.window {
+    display: flex;
+    flex-direction: column;
+}
+</style>

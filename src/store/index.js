@@ -8,7 +8,7 @@ export default createStore({
         artist: 'Sam Fender',
         album: 'Hypersonic Missiles',
         albumCover: require('@/assets/hypersonic-album.png'),  
-        duration: 3.23,
+        duration: "3:23",
         added: new Date('2022-05-08'),
         favorite: false,
         download: false
@@ -18,7 +18,7 @@ export default createStore({
         artist: 'Two Door Cinema Club',
         album: 'Wonderful Life',
         albumCover: require('@/assets/wonderful-album.png'),  
-        duration: 3.06,
+        duration: "3:06",
         added: new Date('2022-07-16'),
         favorite: false,
         download: false
@@ -28,7 +28,7 @@ export default createStore({
         artist: 'Circa Waves',
         album: 'Different Creatures',
         albumCover: require('@/assets/different-album.png'),  
-        duration: 3.50,
+        duration: "3:50",
         added: new Date('2023-10-13'),
         favorite: false,
         download: false
@@ -38,7 +38,7 @@ export default createStore({
         artist: 'Corella',
         album: 'Come Around',
         albumCover: require('@/assets/come-around-album.png'),  
-        duration: 3.14,
+        duration: "3:14",
         added: new Date('2021-01-04'),
         favorite: false,
         download: false
@@ -48,7 +48,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Broken Machine (Deluxe)',
         albumCover: require('@/assets/broken-album.png'),  
-        duration: 4.32,
+        duration: "4:32",
         added: new Date('2021-08-13'),
         favorite: false,
         download: false
@@ -60,7 +60,7 @@ export default createStore({
         artist: 'Luna Bay',
         album: 'Lights Down',
         albumCover: require('@/assets/lights-down-album.png'),  
-        duration: 3.08,
+        duration: "3:08",
         added: new Date('2023-10-06'),
         favorite: true,
         download: false
@@ -70,7 +70,7 @@ export default createStore({
         artist: 'Glass Caves',
         album: 'Do You Have a Name',
         albumCover: require('@/assets/have-a-name.png'),  
-        duration: 3.30,
+        duration: "3:30",
         added: new Date('2023-10-07'),
         favorite: true,
         download: false
@@ -80,7 +80,7 @@ export default createStore({
         artist: 'Bleachers',
         album: 'Gone Now',
         albumCover: require('@/assets/gone-now-album.png'),  
-        duration: 3.35,
+        duration: "3:35",
         added: new Date('2023-10-08'),
         favorite: true,
         download: false
@@ -90,7 +90,7 @@ export default createStore({
         artist: 'Ryan McMullan',
         album: 'Static',
         albumCover: require('@/assets/static-album.png'),  
-        duration: 3.07,
+        duration: "3:07",
         added: new Date('2021-12-30'),
         favorite: true,
         download: false
@@ -100,7 +100,7 @@ export default createStore({
         artist: 'Two Door Cinema Club',
         album: 'Sure Enough',
         albumCover: require('@/assets/sure-enough.png'),  
-        duration: 2.51,
+        duration: "2:51",
         added: new Date('2021-11-15'),
         favorite: true,
         download: false
@@ -112,7 +112,7 @@ export default createStore({
         artist: 'Sam Fender',
         album: 'Hypersonic Missiles',
         albumCover: require('@/assets/hypersonic-album.png'),  
-        duration: 3.57,
+        duration: "3:57",
         added: new Date('2022-05-03'),
         favorite: false,
         download: false
@@ -122,7 +122,7 @@ export default createStore({
         artist: 'Two Door Cinema Club',
         album: 'Tourist History',
         albumCover: require('@/assets/tourist-album.png'),  
-        duration: 3.11,
+        duration: "3:11",
         added: new Date('2019-07-09'),
         favorite: false,
         download: false
@@ -132,7 +132,7 @@ export default createStore({
         artist: 'The Blue Stones',
         album: 'Hidden Gems',
         albumCover: require('@/assets/hidden-gems-album.png'),  
-        duration: 5.09,
+        duration: "5:09",
         added: new Date('2019-05-09'),
         favorite: false,
         download: false
@@ -142,7 +142,7 @@ export default createStore({
         artist: 'Sam Fender',
         album: 'Friday Fighting',
         albumCover: require('@/assets/friday-album.png'),  
-        duration: 3.10,
+        duration: "3:10",
         added: new Date('2018-08-06'),
         favorite: false,
         download: false
@@ -152,7 +152,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Moral Panic',
         albumCover: require('@/assets/moral-album.png'),  
-        duration: 4.02,
+        duration: "4:02",
         added: new Date('2021-09-14'),
         favorite: false,
         download: false
@@ -164,7 +164,7 @@ export default createStore({
         artist: 'Zac Brown Band',
         album: 'JEKYLL + HYDE ',
         albumCover: require('@/assets/jekyll-album.png'),  
-        duration: 3.11,
+        duration: "3:11",
         added: new Date('2015-02-14'),
         favorite: false,
         download: false
@@ -174,7 +174,7 @@ export default createStore({
         artist: 'Chris Young',
         album: 'Famous Friends',
         albumCover: require('@/assets/famous-friends.png'),  
-        duration: 3.06,
+        duration: "3:06",
         added: new Date('2015-07-14'),
         favorite: false,
         download: false
@@ -184,7 +184,7 @@ export default createStore({
         artist: 'Zac Brown Band',
         album: 'Welcome Home',
         albumCover: require('@/assets/welcome-album.png'),  
-        duration: 3.01,
+        duration: "3:01",
         added: new Date('2015-02-19'),
         favorite: false,
         download: false
@@ -194,7 +194,7 @@ export default createStore({
         artist: 'Chris Young',
         album: 'Losing Sleep',
         albumCover: require('@/assets/losing-album.png'),  
-        duration: 2.58,
+        duration: "2:58",
         added: new Date('2015-11-14'),
         favorite: false,
         download: false
@@ -204,7 +204,7 @@ export default createStore({
         artist: 'Luke Bryan',
         album: 'Crash My Party',
         albumCover: require('@/assets/crash-my-album.png'),  
-        duration: 3.46,
+        duration: "3:46",
         added: new Date('2015-12-14'),
         favorite: false,
         download: false
@@ -216,7 +216,7 @@ export default createStore({
         artist: 'Ryan McMullan',
         album: 'The "Debut" Mix Tape',
         albumCover: require('@/assets/debut-album.png'),  
-        duration: 2.44,
+        duration: "2:44",
         added: new Date('2015-09-28'),
         favorite: false,
         download: false
@@ -226,7 +226,7 @@ export default createStore({
         artist: "Somebody's Child",
         album: "Somebody's Child",
         albumCover: require('@/assets/somebody-album.png'),  
-        duration: 3.37,
+        duration: "3:37",
         added: new Date('2018-02-14'),
         favorite: true,
         download: false
@@ -236,7 +236,7 @@ export default createStore({
         artist: 'Dennis Lloyd',
         album: 'Oceanside',
         albumCover: require('@/assets/oceanside-album.png'),  
-        duration: 2.48,
+        duration: "2:48",
         added: new Date('2023-06-20'),
         favorite: true,
         download: false
@@ -246,7 +246,7 @@ export default createStore({
         artist: 'Dennis Lloyd',
         album: 'Exident',
         albumCover: require('@/assets/exident-album.png'),  
-        duration: 3.06,
+        duration: "3:06",
         added: new Date('2021-05-21'),
         favorite: true,
         download: false
@@ -256,7 +256,7 @@ export default createStore({
         artist: 'The Holdup',
         album: 'Leaves in the Pool',
         albumCover: require('@/assets/leaves-in-the-pool-album.png'),  
-        duration: 3.22,
+        duration: "3:22",
         added: new Date('2015-02-14'),
         favorite: false,
         download: false
@@ -268,7 +268,7 @@ export default createStore({
         artist: 'Isaac Dunbar',
         album: 'evil twin',
         albumCover: require('@/assets/evil-twin-album.png'),  
-        duration: 3.02,
+        duration: "3:02",
         added: new Date('2022-02-14'),
         favorite: false,
         download: false
@@ -278,7 +278,7 @@ export default createStore({
         artist: 'Dutch Melrose, Lost Boy',
         album: 'OXOX',
         albumCover: require('@/assets/oxox-album.png'),  
-        duration: 2.32,
+        duration: "2:32",
         added: new Date('2013-07-14'),
         favorite: false,
         download: false
@@ -288,7 +288,7 @@ export default createStore({
         artist: 'Sam Fender',
         album: 'Hypersonic Missiles',
         albumCover: require('@/assets/hypersonic-album.png'),  
-        duration: 3.46,
+        duration: "3:46",
         added: new Date('2022-06-19'),
         favorite: false,
         download: false
@@ -298,7 +298,7 @@ export default createStore({
         artist: 'The Blue Stones',
         album: 'Pretty Monster',
         albumCover: require('@/assets/pretty-monster-album.png'),  
-        duration: 3.19,
+        duration: "3:19",
         added: new Date('2012-02-14'),
         favorite: false,
         download: false
@@ -308,7 +308,7 @@ export default createStore({
         artist: 'Lofi Leif',
         album: 'Silent Sky',
         albumCover: require('@/assets/lofi-leif-album.png'),  
-        duration: 2.20,
+        duration: "2:20",
         added: new Date('2019-07-18'),
         favorite: false,
         download: false
@@ -320,7 +320,7 @@ export default createStore({
         artist: 'Against The Current',
         album: 'silent stranger',
         albumCover: require('@/assets/silent-album.png'),  
-        duration: 3.29,
+        duration: "3:29",
         added: new Date('2023-05-14'),
         favorite: false,
         download: false
@@ -330,7 +330,7 @@ export default createStore({
         artist: 'Dead Lakes',
         album: 'daydreamer',
         albumCover: require('@/assets/daydreamer-album.png'),  
-        duration: 3.08,
+        duration: "3:08",
         added: new Date('2010-08-14'),
         favorite: false,
         download: false
@@ -340,7 +340,7 @@ export default createStore({
         artist: 'Bishop Briggs',
         album: 'Revolution',
         albumCover: require('@/assets/revolution-album.png'),  
-        duration: 3.06,
+        duration: "3:06",
         added: new Date('2022-10-20'),
         favorite: false,
         download: false
@@ -350,7 +350,7 @@ export default createStore({
         artist: 'The Amazonas',
         album: 'The Amazonas (Deluxe)',
         albumCover: require('@/assets/the-amazonas-album.png'),  
-        duration: 3.50,
+        duration: "3:50",
         added: new Date('2017-07-01'),
         favorite: false,
         download: false
@@ -360,7 +360,7 @@ export default createStore({
         artist: 'Of Virtue',
         album: 'Sinner',
         albumCover: require('@/assets/sinner-album.png'),  
-        duration: 3.13,
+        duration: "3:13",
         added: new Date('2015-11-10'),
         favorite: false,
         download: false
@@ -372,7 +372,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Welcome to the DCC',
         albumCover: require('@/assets/to-dcc-album.png'),  
-        duration: 3.18,
+        duration: "3:18",
         added: new Date('2023-09-14'),
         favorite: true,
         download: false
@@ -382,7 +382,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Dead Club City',
         albumCover: require('@/assets/dead-club-album.png'),  
-        duration: 3.34,
+        duration: "3:34",
         added: new Date('2023-06-30'),
         favorite: true,
         download: false
@@ -392,7 +392,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Broken Machine (Delux)',
         albumCover: require('@/assets/broken-album.png'),  
-        duration: 4.32,
+        duration: "4:32",
         added: new Date('2017-09-08'),
         favorite: true,
         download: false
@@ -402,7 +402,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Broken Machine (Delux)',
         albumCover: require('@/assets/broken-album.png'),  
-        duration: 3.35,
+        duration: "3:35",
         added: new Date('2015-02-14'),
         favorite: true,
         download: false
@@ -412,7 +412,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Nothing But Thieves (Delux)',
         albumCover: require('@/assets/nothing-album.png'),  
-        duration: 3.11,
+        duration: "3:11",
         added: new Date('2015-10-16'),
         favorite: false,
         download: false
@@ -424,7 +424,7 @@ export default createStore({
         artist: " We're Wolves",
         album: 'Dissonance',
         albumCover: require('@/assets/dissonance-album.png'),  
-        duration: 4.00,
+        duration: "4:00",
         added: new Date('2018-05-15'),
         favorite: false,
         download: false,
@@ -435,7 +435,7 @@ export default createStore({
         artist: 'Bring Me The Horizon',
         album: 'POST HUMAN:SURVIVAL HORROR',
         albumCover: require('@/assets/post-album.png'),  
-        duration: 3.41,
+        duration: "3:41",
         added: new Date('2015-02-14'),
         favorite: false,
         download: false,
@@ -446,7 +446,7 @@ export default createStore({
         artist: 'Escape The Day',
         album: 'Riot',
         albumCover: require('@/assets/riot-album.png'),  
-        duration: 3.10,
+        duration: "3:10",
         added: new Date('2021-11-05'),
         favorite: true,
         download: false
@@ -456,7 +456,7 @@ export default createStore({
         artist: 'Asking Alexandria',
         album: 'Asking Alexandria',
         albumCover: require('@/assets/asking-album.png'),  
-        duration: 4.06,
+        duration: "4:06",
         added: new Date('2017-12-15'),
         favorite: false,
         download: false,
@@ -467,7 +467,7 @@ export default createStore({
         artist: 'Paloma',
         album: 'Lock Me Up',
         albumCover: require('@/assets/lock-me-album.png'),  
-        duration: 3.26,
+        duration: "3:26",
         added: new Date('2020-06-26'),
         favorite: false,
         download: false
@@ -479,7 +479,7 @@ export default createStore({
         artist: 'Nothing But Thieves',
         album: 'Welcome to the DCC',
         albumCover: require('@/assets/to-dcc-album.png'),  
-        duration: 3.18,
+        duration: "3:18",
         added: new Date('2023-09-14'),
         favorite: true,
         download: false
@@ -489,7 +489,7 @@ export default createStore({
         artist: 'Two Door Cinema Club',
         album: 'Sure Enough',
         albumCover: require('@/assets/sure-enough.png'),  
-        duration: 2.51,
+        duration: "2:51",
         added: new Date('2021-11-15'),
         favorite: true,
         download: false
@@ -499,7 +499,7 @@ export default createStore({
         artist: 'The Blue Stones',
         album: 'Pretty Monster',
         albumCover: require('@/assets/pretty-monster-album.png'),  
-        duration: 3.20,
+        duration: "3:20",
         added: new Date('2017-12-18'),
         favorite: false,
         download: false
@@ -509,7 +509,7 @@ export default createStore({
         artist: 'Circa Waves',
         album: 'Never Going Under',
         albumCover: require('@/assets/never-going-album.png'),  
-        duration: 2.14,
+        duration: "2:14",
         added: new Date('2023-01-13'),
         favorite: true,
         download: false
@@ -519,7 +519,7 @@ export default createStore({
         artist: 'Bastille',
         album: 'Doom Days',
         albumCover: require('@/assets/doom-days-album.png'),  
-        duration: 3.10,
+        duration: "3:10",
         added: new Date('2019-06-14'),
         favorite: false,
         download: false
