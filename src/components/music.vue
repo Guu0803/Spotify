@@ -20,7 +20,7 @@
                 {{ added }}
             </div>
             <div class="favorite-container" v-on:click="showFavorite()" >
-                <span class="material-icons favorite" v-if="favorite">
+                <span class="material-icons favorite" v-if="like || favorite">
                     favorite
                 </span>
                 <span class="material-symbols-sharp not-favorite" v-else>
@@ -39,18 +39,18 @@
 <script>
 export default {
     name: 'musicComponent',
-    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration'],
+    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'favorite'],
     data() {
         return {
-            favorite: false
+            like: false
         }
     },
     methods: {
         showFavorite() {
-            if (this.favorite == false) {
-                this.favorite = true
+            if (this.like == false) {
+                this.like = true
             } else {
-                this.favorite = false
+                this.like = false
             }
         }
     }
@@ -106,18 +106,21 @@ export default {
     align-items: center;
     font-weight: 500;
     width: 18vw;
+    font-size: 0.8em;
 }
 
 .music-artist {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: var(--font-color);
+    font-weight: 500;
+    margin-top: 0.5vh;
 }
 
 .music-album {
     color: var(--font-color);
     font-weight: 500;
-    width: 9vw;
-    margin-right: 4.5vw;
+    width: 11vw;
+    margin-right: 2.5vw;
     font-size: 0.8em;
 }
 
@@ -161,7 +164,8 @@ export default {
     color: var(--font-color);
     margin: 0 1vw;
     width: 3vw;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    font-weight: 500;
 }
 
 .horiz {

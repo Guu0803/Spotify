@@ -50,7 +50,7 @@
                             5 músicas,
                         </div>
                     </div>
-                    2h 40min *fazer conta
+                    {{playlistDuration()}}
                 </div>
             </div>
         </div>
@@ -167,37 +167,69 @@ export default {
         },
         backgroundPlaylistHeader() {
             if (this.playlist == 'session') {
-                return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'country') {
-                return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'descobertas') {
-                return 'background-image: linear-gradient(to bottom, rgb(24, 69, 105) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(24, 69, 105) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'curtidas') {
-                return 'background-image: linear-gradient(to bottom, rgb(22, 12, 56) 10%, var(--div-background) 70%)'
+                return 'background-image: linear-gradient(to bottom, rgb(22, 12, 56) 10%, var(--div-background) 50%)'
             }
             if (this.playlist == 'episodios') {
-                return 'background-image: linear-gradient(to bottom, rgb(5, 104, 79) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(5, 104, 79) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'vibration') {
-                return 'background-image: linear-gradient(to bottom, rgba(173, 105, 22, 0.8) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgba(173, 105, 22, 0.8) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'nothing') {
-                return 'background-image: linear-gradient(to bottom, rgb(71, 70, 70) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(71, 70, 70) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'indie') {
-                return 'background-image: linear-gradient(to bottom, rgb(148, 13, 85) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(148, 13, 85) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'relax') {
-                return 'background-image: linear-gradient(to bottom, rgb(71, 110, 101) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(71, 110, 101) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'metal') {
-                return 'background-image: linear-gradient(to bottom, rgb(6, 43, 85) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(6, 43, 85) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'daily') {
-                return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34) 10%, var(--div-background) 70%);'
+                return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34) 10%, var(--div-background) 50%);'
+            }
+        },
+        playlistDuration(){
+            if(this.playlist == 'session'){
+                return "14min 59 s"
+            }
+            if(this.playlist == 'country'){
+                return "16min 2 s"
+            }
+            if(this.playlist == 'descobertas'){
+                return "16min 46 s"
+            }
+            if(this.playlist == 'curtidas'){
+                return " 16min 11 s"
+            }
+            if(this.playlist == 'vibration'){
+                return " 19min 29 s"
+            }
+            if(this.playlist == 'nothing'){
+                return " 18min 10 s"
+            }
+            if(this.playlist == 'indie'){
+                return "18min 5 s"
+            }
+            if(this.playlist == 'relax'){
+                return " 15min 37 s"
+            }
+            if(this.playlist == 'metal'){
+                return " 18min 23 s"
+            }
+            if(this.playlist == 'daily'){
+                return " 16min 53 s"
             }
         }
     }
@@ -312,6 +344,7 @@ export default {
 
 .playlist-header {
     position: relative;
+    height: 60vh;
 }
 
 .btn-container {
