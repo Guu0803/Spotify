@@ -1,15 +1,15 @@
 <template>
     <div>
-        
+        <episode/>
     </div>
 </template>
 <script>
+import episode from '@/components/episodes.vue';
 export default {
     name: 'testePage',
-    created(){
-        const data = new Date('2023-03-25')
-        console.log(data)
-    }
+   components:{
+    episode
+   }
 }
 
 </script>

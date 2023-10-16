@@ -1,14 +1,25 @@
 <template>
     <div class="music-container">
-        <div class="music">
+        <div class="music" v-on:click="playNow()">
             <div class="music-number">
-                {{ songNumber }}
+                <div class="number">
+                    {{ songNumber }}
+                </div>
+                <span class="material-icons play-arrow">
+                    play_arrow
+                </span>
             </div>
             <div class="music-title">
                 <img :src="albumCover" class="thumb">
                 <div>
                     {{ name }}
                     <div class="music-artist">
+                        <span class="material-icons explicit" v-if="explicit">
+                            explicit
+                        </span>
+                        <span class="material-symbols-sharp downloaded" v-if="download">
+                            south
+                        </span>
                         {{ artist }}
                     </div>
                 </div>
@@ -19,7 +30,7 @@
             <div class="add">
                 {{ added }}
             </div>
-            <div class="favorite-container" v-on:click="showFavorite()" >
+            <div class="favorite-container" v-on:click="showFavorite()">
                 <span class="material-icons favorite" v-if="like || favorite">
                     favorite
                 </span>
@@ -39,7 +50,7 @@
 <script>
 export default {
     name: 'musicComponent',
-    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'favorite'],
+    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'favorite', 'explicit'],
     data() {
         return {
             like: false
@@ -52,6 +63,14 @@ export default {
             } else {
                 this.like = false
             }
+        },
+        playNow(){
+            let musicNow = {
+                name:this.name,
+                artist:this.artist,
+                albumCover: this.albumCover
+            }
+            localStorage.setItem('musicNow', JSON.stringify(musicNow))
         }
     }
 }
@@ -87,13 +106,25 @@ export default {
 .music:hover>.horiz {
     opacity: 1;
 }
-
+.music:hover > div > .number{
+    display: none;
+}
+.music:hover > div > .play-arrow{
+    display: block;
+}
 .music-number {
     width: 3vw;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--font-color);
 }
-
+.number {
+    display: block;
+}
+.play-arrow{
+    display: none;
+}
 .thumb {
     height: 6.5vh;
     border-radius: 5px;
@@ -114,6 +145,24 @@ export default {
     color: var(--font-color);
     font-weight: 500;
     margin-top: 0.5vh;
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.explicit {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.downloaded {
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 0.9em;
+    background-color: var(--green);
+    color: #000;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .music-album {
@@ -122,6 +171,9 @@ export default {
     width: 11vw;
     margin-right: 2.5vw;
     font-size: 0.8em;
+    text-wrap: nowrap;
+    overflow-x: hidden;
+    max-height: 3vh;
 }
 
 .music-album:hover,
@@ -171,4 +223,5 @@ export default {
 .horiz {
     color: var(--font-color);
     opacity: 0;
+    margin-right: 1vh;
 }</style>

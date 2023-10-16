@@ -10,8 +10,6 @@ export default createStore({
         albumCover: require('@/assets/hypersonic-album.png'),  
         duration: "3:23",
         added: new Date('2022-05-08'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Wonderful Life - edit',
@@ -20,8 +18,7 @@ export default createStore({
         albumCover: require('@/assets/wonderful-album.png'),  
         duration: "3:06",
         added: new Date('2022-07-16'),
-        favorite: false,
-        download: false
+        
       },
       {
         name: 'Fire That Burns',
@@ -30,8 +27,7 @@ export default createStore({
         albumCover: require('@/assets/different-album.png'),  
         duration: "3:50",
         added: new Date('2023-10-13'),
-        favorite: false,
-        download: false
+        
       },
       {
         name: 'Come Around',
@@ -40,8 +36,6 @@ export default createStore({
         albumCover: require('@/assets/come-around-album.png'),  
         duration: "3:14",
         added: new Date('2021-01-04'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Amsterdam',
@@ -50,8 +44,6 @@ export default createStore({
         albumCover: require('@/assets/broken-album.png'),  
         duration: "4:32",
         added: new Date('2021-08-13'),
-        favorite: false,
-        download: false
       }
     ],
     playlistMusicasCurtidas: [
@@ -114,8 +106,6 @@ export default createStore({
         albumCover: require('@/assets/hypersonic-album.png'),  
         duration: "3:57",
         added: new Date('2022-05-03'),
-        favorite: false,
-        download: false
       },
       {
         name: 'What You Know',
@@ -124,8 +114,6 @@ export default createStore({
         albumCover: require('@/assets/tourist-album.png'),  
         duration: "3:11",
         added: new Date('2019-07-09'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Ocenas',
@@ -134,8 +122,6 @@ export default createStore({
         albumCover: require('@/assets/hidden-gems-album.png'),  
         duration: "5:09",
         added: new Date('2019-05-09'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Friday Fighting',
@@ -144,8 +130,6 @@ export default createStore({
         albumCover: require('@/assets/friday-album.png'),  
         duration: "3:10",
         added: new Date('2018-08-06'),
-        favorite: false,
-        download: false
       },
       {
         name: 'This Feels Like the End',
@@ -154,8 +138,6 @@ export default createStore({
         albumCover: require('@/assets/moral-album.png'),  
         duration: "4:02",
         added: new Date('2021-09-14'),
-        favorite: false,
-        download: false
       }
     ],
     playlistCountry: [
@@ -166,8 +148,6 @@ export default createStore({
         albumCover: require('@/assets/jekyll-album.png'),  
         duration: "3:11",
         added: new Date('2015-02-14'),
-        favorite: false,
-        download: false
       },
       {
         name: 'At the End of a Bar',
@@ -176,8 +156,6 @@ export default createStore({
         albumCover: require('@/assets/famous-friends.png'),  
         duration: "3:06",
         added: new Date('2015-07-14'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Roots',
@@ -186,8 +164,6 @@ export default createStore({
         albumCover: require('@/assets/welcome-album.png'),  
         duration: "3:01",
         added: new Date('2015-02-19'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Losing Sleep',
@@ -196,8 +172,6 @@ export default createStore({
         albumCover: require('@/assets/losing-album.png'),  
         duration: "2:58",
         added: new Date('2015-11-14'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Play It Again',
@@ -206,8 +180,6 @@ export default createStore({
         albumCover: require('@/assets/crash-my-album.png'),  
         duration: "3:46",
         added: new Date('2015-12-14'),
-        favorite: false,
-        download: false
       }
     ],
     playlistMixRelax: [
@@ -217,9 +189,7 @@ export default createStore({
         album: 'The "Debut" Mix Tape',
         albumCover: require('@/assets/debut-album.png'),  
         duration: "2:44",
-        added: new Date('2015-09-28'),
-        favorite: false,
-        download: false
+        added: new Date('2015-09-28')
       },
       {
         name: 'We Could Star a War',
@@ -228,8 +198,6 @@ export default createStore({
         albumCover: require('@/assets/somebody-album.png'),  
         duration: "3:37",
         added: new Date('2018-02-14'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Oceanside',
@@ -238,8 +206,6 @@ export default createStore({
         albumCover: require('@/assets/oceanside-album.png'),  
         duration: "2:48",
         added: new Date('2023-06-20'),
-        favorite: true,
-        download: false
       },
       {
         name: 'GFY',
@@ -248,8 +214,6 @@ export default createStore({
         albumCover: require('@/assets/exident-album.png'),  
         duration: "3:06",
         added: new Date('2021-05-21'),
-        favorite: true,
-        download: false
       },
       {
         name: "Nothing's on Fire",
@@ -258,8 +222,6 @@ export default createStore({
         albumCover: require('@/assets/leaves-in-the-pool-album.png'),  
         duration: "3:22",
         added: new Date('2015-02-14'),
-        favorite: false,
-        download: false
       }
     ],
     playlistSessions: [
@@ -270,8 +232,6 @@ export default createStore({
         albumCover: require('@/assets/evil-twin-album.png'),  
         duration: "3:02",
         added: new Date('2022-02-14'),
-        favorite: false,
-        download: false
       },
       {
         name: 'OXOX',
@@ -280,8 +240,6 @@ export default createStore({
         albumCover: require('@/assets/oxox-album.png'),  
         duration: "2:32",
         added: new Date('2013-07-14'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Play God',
@@ -290,8 +248,6 @@ export default createStore({
         albumCover: require('@/assets/hypersonic-album.png'),  
         duration: "3:46",
         added: new Date('2022-06-19'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Good Ideas',
@@ -300,8 +256,6 @@ export default createStore({
         albumCover: require('@/assets/pretty-monster-album.png'),  
         duration: "3:19",
         added: new Date('2012-02-14'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Silent Sky',
@@ -310,8 +264,6 @@ export default createStore({
         albumCover: require('@/assets/lofi-leif-album.png'),  
         duration: "2:20",
         added: new Date('2019-07-18'),
-        favorite: false,
-        download: false
       }
     ],
     playlistDescobertas: [
@@ -322,8 +274,6 @@ export default createStore({
         albumCover: require('@/assets/silent-album.png'),  
         duration: "3:29",
         added: new Date('2023-05-14'),
-        favorite: false,
-        download: false
       },
       {
         name: 'wrong way',
@@ -332,8 +282,7 @@ export default createStore({
         albumCover: require('@/assets/daydreamer-album.png'),  
         duration: "3:08",
         added: new Date('2010-08-14'),
-        favorite: false,
-        download: false
+        
       },
       {
         name: 'Revolution',
@@ -342,8 +291,6 @@ export default createStore({
         albumCover: require('@/assets/revolution-album.png'),  
         duration: "3:06",
         added: new Date('2022-10-20'),
-        favorite: false,
-        download: false
       },
       {
         name: 'In My Mind',
@@ -352,8 +299,6 @@ export default createStore({
         albumCover: require('@/assets/the-amazonas-album.png'),  
         duration: "3:50",
         added: new Date('2017-07-01'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Sinner',
@@ -362,8 +307,6 @@ export default createStore({
         albumCover: require('@/assets/sinner-album.png'),  
         duration: "3:13",
         added: new Date('2015-11-10'),
-        favorite: false,
-        download: false
       }
     ],
     thisIsNothingBut: [
@@ -374,8 +317,6 @@ export default createStore({
         albumCover: require('@/assets/to-dcc-album.png'),  
         duration: "3:18",
         added: new Date('2023-09-14'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Overcome',
@@ -384,8 +325,6 @@ export default createStore({
         albumCover: require('@/assets/dead-club-album.png'),  
         duration: "3:34",
         added: new Date('2023-06-30'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Amsterdam',
@@ -394,8 +333,6 @@ export default createStore({
         albumCover: require('@/assets/broken-album.png'),  
         duration: "4:32",
         added: new Date('2017-09-08'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Sorry',
@@ -404,8 +341,6 @@ export default createStore({
         albumCover: require('@/assets/broken-album.png'),  
         duration: "3:35",
         added: new Date('2015-02-14'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Honey Whiskey',
@@ -414,8 +349,6 @@ export default createStore({
         albumCover: require('@/assets/nothing-album.png'),  
         duration: "3:11",
         added: new Date('2015-10-16'),
-        favorite: false,
-        download: false
       }
     ],
     playlistMixMetal: [
@@ -426,19 +359,15 @@ export default createStore({
         albumCover: require('@/assets/dissonance-album.png'),  
         duration: "4:00",
         added: new Date('2018-05-15'),
-        favorite: false,
-        download: false,
         explicit: true
       },
       {
         name: 'Obey (with YUNGBLUD)',
         artist: 'Bring Me The Horizon',
-        album: 'POST HUMAN:SURVIVAL HORROR',
+        album: 'POST HUMAN: SURVIVAL HORROR',
         albumCover: require('@/assets/post-album.png'),  
         duration: "3:41",
         added: new Date('2015-02-14'),
-        favorite: false,
-        download: false,
         explicit: true
       },
       {
@@ -448,8 +377,6 @@ export default createStore({
         albumCover: require('@/assets/riot-album.png'),  
         duration: "3:10",
         added: new Date('2021-11-05'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Alone In a Room',
@@ -458,8 +385,6 @@ export default createStore({
         albumCover: require('@/assets/asking-album.png'),  
         duration: "4:06",
         added: new Date('2017-12-15'),
-        favorite: false,
-        download: false,
         explicit: true
       },
       {
@@ -469,8 +394,6 @@ export default createStore({
         albumCover: require('@/assets/lock-me-album.png'),  
         duration: "3:26",
         added: new Date('2020-06-26'),
-        favorite: false,
-        download: false
       }
     ],
     playlistDailyMix: [
@@ -481,8 +404,7 @@ export default createStore({
         albumCover: require('@/assets/to-dcc-album.png'),  
         duration: "3:18",
         added: new Date('2023-09-14'),
-        favorite: true,
-        download: false
+        
       },
       {
         name: 'Sure Enough',
@@ -491,8 +413,6 @@ export default createStore({
         albumCover: require('@/assets/sure-enough.png'),  
         duration: "2:51",
         added: new Date('2021-11-15'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Healing',
@@ -501,8 +421,6 @@ export default createStore({
         albumCover: require('@/assets/pretty-monster-album.png'),  
         duration: "3:20",
         added: new Date('2017-12-18'),
-        favorite: false,
-        download: false
       },
       {
         name: 'Never Going Under',
@@ -511,8 +429,6 @@ export default createStore({
         albumCover: require('@/assets/never-going-album.png'),  
         duration: "2:14",
         added: new Date('2023-01-13'),
-        favorite: true,
-        download: false
       },
       {
         name: 'Bad Decisions',
@@ -521,22 +437,23 @@ export default createStore({
         albumCover: require('@/assets/doom-days-album.png'),  
         duration: "3:10",
         added: new Date('2019-06-14'),
-        favorite: false,
-        download: false
       }
     ],
     episodes: [
       {
         name: 'Paciente 63',
-        episode: 'T1E9: Entrelaçamento',
+        episodeName: 'T1E9: Entrelaçamento',
         description: 'Sessão Extraodinária.Linhas de tempo que se cruzam. Elisa se rende -talvez por essa razão- diante de um plano que a ciência não pode confirmar. O paciente 63 reaparece para deixar um último registro.',
-        albumCover: require('@/assets/paciente-63.png'),  
+        albumCover: require('@/assets/paciente-63.png'), 
+        added: new Date('2021-10-14'),
+        
       },
       {
         name: 'França e o Labirinto',
-        episode: '02. Modus operandi',
+        episodeName: '02. Modus operandi',
         description: 'Com a ajuda da ex-esposa, a perita criminal Angela, o detetive vai atrás de pistas. Uma viagem pelo passado leva França até alguém que domina o caso do Assasino do Labirinto tão bem quanto ele, mas a conversa não sai como esperado.',
         albumCover: require('@/assets/frança-album.png'),  
+        added: new Date('2023-08-01'),
       },
     ]
   },

@@ -44,38 +44,55 @@
                             fiber_manual_record
                         </span>
                         <div v-if="episode == true">
-                            2 episódios,
+                            2 episódios
                         </div>
                         <div v-else>
                             5 músicas,
                         </div>
                     </div>
-                    {{playlistDuration()}}
+                    {{ playlistDuration() }}
                 </div>
             </div>
         </div>
         <div class="playlist-header" :style="backgroundPlaylistHeader()">
             <div class="btn-container">
                 <div class="btns">
-                    <span class="material-icons play-btn">
-                        play_arrow
-                    </span>
-                    <div v-if="playlist == 'country' || playlist == 'vibration'">
-                        <div class="enrich" v-if="enriquecer == false">
-                            Enriquecer
-                        </div>
-                        <div class="enrich" v-else>
+                    <div class="container-play-playlist" v-on:click="playPlaylist()">
+                        <span class="material-icons  play-btn" v-if="play">
+                            pause
+                        </span>
+                        <span class="material-icons play-btn" v-else>
+                            play_arrow
+                        </span>
+                    </div>
+                    <div v-if="playlist == 'country' || playlist == 'vibration'" v-on:click="enrichPlaylist()"
+                        class="enrich">
+                        <div v-if="enrich">
                             <img src="@/assets/brilho.png">
                             Enriquecida
                         </div>
+                        <div v-else>
+                            Enriquecer
+                        </div>
                     </div>
-                    <span class="material-symbols-sharp like"
-                        v-if="playlist != 'episodios' && playlist != 'curtidas' && playlist != 'country' && playlist != 'vibration'">
-                        favorite
-                    </span>
-                    <span class="material-symbols-sharp download" v-if="playlist != 'episodios'">
-                        south
-                    </span>
+                    <div class="favorite-container"
+                        v-if="playlist != 'episodios' && playlist != 'curtidas' && playlist != 'country' && playlist != 'vibration'"
+                        v-on:click="likePlaylist()">
+                        <span class="material-icons liked" v-if="like">
+                            favorite
+                        </span>
+                        <span class="material-symbols-sharp like" v-else>
+                            favorite
+                        </span>
+                    </div>
+                    <div class="download-container" v-if="playlist != 'episodios'" v-on:click="downloadPlaylist()">
+                        <span class="material-symbols-sharp downloaded" v-if="download">
+                            south
+                        </span>
+                        <span class="material-symbols-sharp download" v-else>
+                            south
+                        </span>
+                    </div>
                     <span class="material-symbols-sharp collaborators"
                         v-if="playlist == 'country' || playlist == 'vibration'">
                         person_add
@@ -97,7 +114,7 @@
                 </div>
             </div>
             <div class="columns-container">
-                <div class="columns">
+                <div class="columns" v-if="playlist != 'episodios'">
                     <div class="number">
                         #
                     </div>
@@ -116,6 +133,8 @@
                         </span>
                     </div>
                 </div>
+                <div class="columns" v-else>
+                </div>
             </div>
         </div>
     </div>
@@ -126,10 +145,41 @@ export default {
     props: ['playlistName', 'artist1', 'artist2', 'artist3', 'playlistImg', 'playlistDescription', 'episode', 'playlist'],
     data() {
         return {
-            enriquecer: false
+            enrich: false,
+            download: false,
+            like: false,
+            play:false
         }
     },
     methods: {
+        playPlaylist(){
+            if (this.play == false) {
+                this.play = true
+            } else {
+                this.play = false
+            }
+        },
+        enrichPlaylist() {
+            if (this.enrich == false) {
+                this.enrich = true
+            } else {
+                this.enrich = false
+            }
+        },
+        likePlaylist() {
+            if (this.like == false) {
+                this.like = true
+            } else {
+                this.like = false
+            }
+        },
+        downloadPlaylist() {
+            if (this.download == false) {
+                this.download = true
+            } else {
+                this.download = false
+            }
+        },
         background() {
             if (this.playlist == 'session') {
                 return 'background-color: rgba(114, 49, 114, 0.7);'
@@ -200,35 +250,35 @@ export default {
                 return 'background-image: linear-gradient(to bottom, rgb(50, 78, 34) 10%, var(--div-background) 50%);'
             }
         },
-        playlistDuration(){
-            if(this.playlist == 'session'){
+        playlistDuration() {
+            if (this.playlist == 'session') {
                 return "14min 59 s"
             }
-            if(this.playlist == 'country'){
+            if (this.playlist == 'country') {
                 return "16min 2 s"
             }
-            if(this.playlist == 'descobertas'){
+            if (this.playlist == 'descobertas') {
                 return "16min 46 s"
             }
-            if(this.playlist == 'curtidas'){
+            if (this.playlist == 'curtidas') {
                 return " 16min 11 s"
             }
-            if(this.playlist == 'vibration'){
+            if (this.playlist == 'vibration') {
                 return " 19min 29 s"
             }
-            if(this.playlist == 'nothing'){
+            if (this.playlist == 'nothing') {
                 return " 18min 10 s"
             }
-            if(this.playlist == 'indie'){
+            if (this.playlist == 'indie') {
                 return "18min 5 s"
             }
-            if(this.playlist == 'relax'){
+            if (this.playlist == 'relax') {
                 return " 15min 37 s"
             }
-            if(this.playlist == 'metal'){
+            if (this.playlist == 'metal') {
                 return " 18min 23 s"
             }
-            if(this.playlist == 'daily'){
+            if (this.playlist == 'daily') {
                 return " 16min 53 s"
             }
         }
@@ -355,9 +405,7 @@ export default {
 }
 
 .enrich {
-    display: flex;
-    align-items: center;
-    gap: 1vh;
+    width: 8vw;
     color: var(--font-color-hover);
     font-weight: 500;
     border-radius: 20px;
@@ -365,6 +413,12 @@ export default {
     padding: 1vh;
     font-size: 0.9em;
     cursor: pointer;
+}
+
+.enrich>div {
+    display: flex;
+    gap: 1vh;
+    align-items: center;
     justify-content: center;
 }
 
@@ -443,6 +497,13 @@ export default {
     font-weight: 300;
 }
 
+.liked {
+    font-size: 2.5em;
+    font-weight: 300;
+    color: var(--green);
+    cursor: pointer;
+}
+
 .download {
     border: 2px solid var(--font-color);
     color: var(--font-color);
@@ -455,6 +516,17 @@ export default {
     cursor: pointer;
     color: var(--font-color-hover);
     border-color: var(--font-color-hover);
+}
+
+.downloaded {
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 1.3em;
+    background-color: var(--green);
+    color: #000;
+    border: 2px solid var(--green);
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .columns {
