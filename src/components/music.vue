@@ -68,9 +68,10 @@ export default {
             let musicNow = {
                 name:this.name,
                 artist:this.artist,
-                albumCover: this.albumCover
+                albumCover: this.albumCover,
+                duration:this.duration
             }
-            localStorage.setItem('musicNow', JSON.stringify(musicNow))
+            this.$store.commit('musicNow', musicNow)
         }
     }
 }

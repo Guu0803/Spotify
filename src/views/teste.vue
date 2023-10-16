@@ -9,7 +9,8 @@ export default {
     name: 'testePage',
    components:{
     episode
-   }
+   }, 
+   
 }
 
 </script>

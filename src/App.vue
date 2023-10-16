@@ -11,14 +11,15 @@
       </div>
       <div class="nav-menu">
         <img src="@/assets/biblioteca.png" class="library">
-        <img src="@/assets/biblioteca-cheia.png" class="library" v-if="library">
-        <img src="@/assets/musicas-curtidas.png" class="nav-img" v-on:click="toMusicasCurtidas()">
-        <img src="@/assets/episodios.png" class="nav-img" v-on:click="toSeusEpisodios()" >
-        <img src="@/assets/descobertas.png" class="nav-img" v-on:click="toDescobertas()">
-        <img src="@/assets/country.png" class="nav-img" v-on:click="toCountry()">
-        <img src="@/assets/indie.png" class="nav-img" v-on:click="toIndieVibration()">
-        <img src="@/assets/nothing.png" class="nav-img" v-on:click="toNothing()">
-        <img src="@/assets/session.png" class="nav-img" v-on:click="toSessions()">
+        <div>
+          <img src="@/assets/musicas-curtidas.png" class="nav-img" v-on:click="toMusicasCurtidas()">
+          <img src="@/assets/episodios.png" class="nav-img" v-on:click="toSeusEpisodios()">
+          <img src="@/assets/descobertas.png" class="nav-img" v-on:click="toDescobertas()">
+          <img src="@/assets/country.png" class="nav-img" v-on:click="toCountry()">
+          <img src="@/assets/indie.png" class="nav-img" v-on:click="toIndieVibration()">
+          <img src="@/assets/nothing.png" class="nav-img" v-on:click="toNothing()">
+          <img src="@/assets/session.png" class="nav-img" v-on:click="toSessions()">
+        </div>
       </div>
     </div>
     <div class="nav-btn">
@@ -54,15 +55,15 @@
       </div>
       <div class="music-container">
         <div class="album">
-          <img src="@/assets/album-teste.png" class="img-info">
+          <img :src="music.albumCover" class="img-info">
         </div>
         <div class="artist-container">
           <div>
             <div class="song">
-              Heartstrings
+              {{ music.name }}
             </div>
             <div class="artist">
-              Jacob Lee
+              {{ music.artist }}
             </div>
           </div>
           <div class="like-container">
@@ -80,12 +81,17 @@
           <img src="@/assets/sobre-artista.png" class="about-banner">
         </div>
         <div class="name">
-          Jacob Lee
+          {{ music.artist }}
         </div>
         <div class="listeners">
           391.271 ouvintes mensais
-          <div class="follow">
-            Seguir
+          <div class="follow" v-on:click="following()">
+            <div v-if="follow">
+              Seguindo
+            </div>
+            <div v-else>
+              Seguir
+            </div>
           </div>
         </div>
         <div class="description">
@@ -98,67 +104,95 @@
     <div class="reproduction-container">
       <div class="artist-reproduction">
         <div>
-          <img src="@/assets/album-teste.png" class="thumb-album">
+          <img :src="music.albumCover" class="thumb-album">
         </div>
         <div class="reproduction">
           <div class="reproduction-name">
-            Heartstrings
+            {{ music.name }}
           </div>
           <div class="reproduction-artist">
-            Jacob Lee
+            {{ music.artist }}
           </div>
         </div>
-        <span class="material-symbols-sharp like">
-          favorite
-        </span>
+        <div v-on:click="liked()">
+          <span class="material-icons liked" v-if="like">
+            favorite
+          </span>
+          <span class="material-symbols-sharp like" v-else>
+            favorite
+          </span>
+        </div>
       </div>
 
       <div class="reproduction-options">
         <div>
-          <img src="@/assets/aleatorio.png" class="playback-icon">
-          <img src="@/assets/aleatorio-verde.png" class="playback-icon" v-if="random">
+          <div v-on:click="randomBtn()">
+            <img src="@/assets/aleatorio-verde.png" class="playback-icon" v-if="random">
+            <img src="@/assets/aleatorio.png" class="playback-icon" v-else>
+          </div>
           <span class="material-symbols-sharp skip">
             skip_previous
           </span>
-          <span class="material-icons play">
-            play_arrow
-          </span>
-          <span class="material-icons play" v-if="pause == false">
-            pause
-          </span>
+          <div v-on:click="playMusic()">
+            <span class="material-icons play" v-if="pause">
+              pause
+            </span>
+            <span class="material-icons play" v-else>
+              play_arrow
+            </span>
+          </div>
           <span class="material-symbols-sharp skip">
             skip_next
           </span>
-          <img src="@/assets/repetir.png" class="playback-icon">
-          <img src="@/assets/repetir-verde.png" class="playback-icon" v-if="loop">
+          <div v-on:click="loopOn()">
+            <img src="@/assets/repetir-verde.png" class="playback-icon" v-if="loop">
+            <img src="@/assets/repetir.png" class="playback-icon" v-else>
+          </div>
         </div>
-        <div>
+        <div class="music-progress">
+          0:00
           <input type="range" class="progress">
+          {{ music.duration }}
         </div>
-
       </div>
 
       <div class="reproduction-configs">
-        <span class="material-symbols-sharp configs-icon">
-          slideshow
-        </span>
-        <img src="@/assets/microfone.png" class="microfone">
-        <img src="@/assets/microfone-verde.png" v-if="letter" class="microfone">
-        <span class="material-symbols-sharp configs-icon">
-          queue_music
-        </span>
-        <span class="material-symbols-sharp configs-icon">
-          devices
-        </span>
-        <span class="material-symbols-sharp configs-icon">
-          no_sound
-        </span>
-        <span class="material-symbols-sharp configs-icon">
-          volume_down
-        </span>
-        <span class="material-symbols-sharp configs-icon">
-          volume_up
-        </span>
+        <div v-on:click="slide()">
+          <span class="material-symbols-sharp configs-icon-green" v-if="slideShow">
+            slideshow
+          </span>
+          <span class="material-symbols-sharp configs-icon" v-else>
+            slideshow
+          </span>
+        </div>
+        <div v-on:click="letterOn()">
+          <img src="@/assets/microfone-verde.png" v-if="letter" class="microfone">
+          <img src="@/assets/microfone.png" class="microfone" v-else>
+        </div>
+        <div v-on:click="queueOn()">
+          <span class="material-symbols-sharp configs-icon-green" v-if="queue">
+            queue_music
+          </span>
+          <span class="material-symbols-sharp configs-icon" v-else>
+            queue_music
+          </span>
+        </div>
+        <div v-on:click="devicesOn()">
+          <span class="material-symbols-sharp configs-icon-green" v-if="devices">
+            devices
+          </span>
+          <span class="material-symbols-sharp configs-icon" v-else>
+            devices
+          </span>
+        </div>
+        <div v-on:click="muteAll">
+          <span class="material-symbols-sharp configs-icon" v-if="mute">
+            no_sound
+          </span>
+          <span class="material-symbols-sharp configs-icon" v-else>
+            volume_up
+          </span>
+        </div>
         <div class="volume">
           <input type="range">
         </div>
@@ -173,10 +207,89 @@
 export default {
   data() {
     return {
-
+      follow: false,
+      like: false,
+      random: false,
+      pause: false,
+      loop: false,
+      slideShow: false,
+      letter: false,
+      queue: false,
+      devices: false,
+      mute: false
     }
   },
   methods: {
+    muteAll() {
+      if (this.mute == false) {
+        this.mute = true
+      } else {
+        this.mute = false
+      }
+    },
+    devicesOn() {
+      if (this.devices == false) {
+        this.devices = true
+      } else {
+        this.devices = false
+      }
+    },
+    queueOn() {
+      if (this.queue == false) {
+        this.queue = true
+      } else {
+        this.queue = false
+      }
+    },
+    letterOn() {
+      if (this.letter == false) {
+        this.letter = true
+      } else {
+        this.letter = false
+      }
+    },
+    slide() {
+      if (this.slideShow == false) {
+        this.slideShow = true
+      } else {
+        this.slideShow = false
+      }
+    },
+    loopOn() {
+      if (this.loop == false) {
+        this.loop = true
+      } else {
+        this.loop = false
+      }
+    },
+    following() {
+      if (this.follow == false) {
+        this.follow = true
+      } else {
+        this.follow = false
+      }
+    },
+    liked() {
+      if (this.like == false) {
+        this.like = true
+      } else {
+        this.like = false
+      }
+    },
+    randomBtn() {
+      if (this.random == false) {
+        this.random = true
+      } else {
+        this.random = false
+      }
+    },
+    playMusic() {
+      if (this.pause == false) {
+        this.pause = true
+      } else {
+        this.pause = false
+      }
+    },
     goBack() {
       this.$router.go(-1)
     },
@@ -197,13 +310,18 @@ export default {
     }, toSessions() {
       this.$router.push('/sessions')
     },
-    toSeusEpisodios(){
+    toSeusEpisodios() {
       this.$router.push('/seus-episodios')
     },
-    toHome(){
+    toHome() {
       this.$router.push('/')
     }
-  }
+  },
+  computed: {
+    music() {
+      return this.$store.state.musicNow
+    }
+  },
 }
 
 </script>
@@ -228,7 +346,7 @@ body {
 .window-app {
   display: flex;
   gap: 1vw;
-  padding: 2vh 2vh 0 2vh;
+  padding: 2vh;
   box-sizing: border-box;
   position: relative;
   height: 100vh;
@@ -261,11 +379,13 @@ body {
 }
 
 .nav-menu {
-  height: 67.2vh;
+  height: 64vh;
   gap: 1vh;
+  padding: 1vh;
+}
+.nav-menu>div{
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 1vh;
 }
 
 .nav-img {
@@ -294,9 +414,11 @@ body {
 .library {
   width: 6vh;
   height: 7vh;
-  margin-left: 1.3vh;
+  margin-left: -0.5vh;
   cursor: pointer;
+  padding: 3px 0;
 }
+
 
 .nav-btn {
   display: flex;
@@ -359,7 +481,6 @@ body {
 .img-user:hover {
   scale: 1.1;
 }
-
 
 .page-body {
   width: 66vw;
@@ -479,6 +600,8 @@ body {
   margin-right: 2vw;
   font-size: 0.9em;
   cursor: pointer;
+  width: 5vw;
+  text-align: center;
 }
 
 .follow:hover {
@@ -497,14 +620,20 @@ body {
   display: flex;
   align-items: center;
   height: 10vh;
-  width: 99%;
+  width: 97%;
   background-color: var(--background);
-  bottom: 0;
-  padding-bottom: 2vh;
+  bottom: 2vh;
+}
+
+.music-progress {
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
+  font-weight: 500;
 }
 
 .thumb-album {
-  height: 9vh;
+  height: 8vh;
   border-radius: 5px;
 }
 
@@ -512,6 +641,7 @@ body {
   display: flex;
   align-items: center;
   color: var(--font-color-hover);
+  width: 25vw;
 }
 
 .reproduction {
@@ -536,6 +666,12 @@ body {
   color: var(--font-color);
   cursor: pointer;
   height: fit-content;
+}
+
+.liked {
+  font-weight: 300;
+  color: var(--green);
+  cursor: pointer;
 }
 
 .reproduction>div:hover {
@@ -678,6 +814,7 @@ input[type=range]:focus::-ms-fill-upper {
   color: var(--font-color);
   cursor: pointer;
   font-weight: 300;
+  padding-bottom: 5px;
 }
 
 .skip:hover {
@@ -690,6 +827,11 @@ input[type=range]:focus::-ms-fill-upper {
   gap: 1vw;
   align-items: center;
   margin-right: 1vw;
+}
+
+.configs-icon-green {
+  color: var(--green);
+  cursor: pointer;
 }
 
 .configs-icon:hover,
@@ -715,7 +857,7 @@ input[type=range]:focus::-ms-fill-upper {
   appearance: none;
   scroll-behavior: smooth;
   width: 10px;
-  background: #000;
+  background: transparent;
 
 }
 
