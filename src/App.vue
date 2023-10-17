@@ -78,13 +78,13 @@
       </div>
       <div class="about-the-artist">
         <div class="artist-banner">
-          <img src="@/assets/sobre-artista.png" class="about-banner">
+          <img :src="music.about.cover" class="about-banner">
         </div>
         <div class="name">
           {{ music.artist }}
         </div>
         <div class="listeners">
-          391.271 ouvintes mensais
+          {{music.about.listeners}}
           <div class="follow" v-on:click="following()">
             <div v-if="follow">
               Seguindo
@@ -95,9 +95,7 @@
           </div>
         </div>
         <div class="description">
-          Traduzido do inglês-Jacob Lee Christian Blowes, que atua como Jacob Lee, é um pop australiano, cantor e
-          compositor de Gold Coast, Queensland. Em maio-junho de 2014, ele participou da terceira série australiana do The
-          Voice e foi treinado por Will.i.am.
+        {{ music.about.info }}
         </div>
       </div>
     </div>
@@ -700,7 +698,7 @@ body {
 }
 
 input[type=range] {
-  -webkit-appearance: none;
+  appearance: none;
   margin: 1vh 0;
   width: 100%;
 }

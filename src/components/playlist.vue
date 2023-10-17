@@ -172,6 +172,7 @@ export default {
             } else {
                 this.like = false
             }
+            this.$store.commit('favorite', this.like)
         },
         downloadPlaylist() {
             if (this.download == false) {
@@ -179,6 +180,7 @@ export default {
             } else {
                 this.download = false
             }
+            this.$store.commit('download', this.download)
         },
         background() {
             if (this.playlist == 'session') {

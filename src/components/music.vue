@@ -30,7 +30,7 @@
             <div class="add">
                 {{ added }}
             </div>
-            <div class="favorite-container" v-on:click="showFavorite()">
+            <div class="favorite-container" v-on:click.stop="showFavorite()">
                 <span class="material-icons favorite" v-if="like || favorite">
                     favorite
                 </span>
@@ -50,7 +50,7 @@
 <script>
 export default {
     name: 'musicComponent',
-    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'favorite', 'explicit'],
+    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'explicit', 'about'],
     data() {
         return {
             like: false
@@ -64,14 +64,24 @@ export default {
                 this.like = false
             }
         },
-        playNow(){
+        playNow() {
             let musicNow = {
-                name:this.name,
-                artist:this.artist,
+                name: this.name,
+                artist: this.artist,
                 albumCover: this.albumCover,
-                duration:this.duration
+                duration: this.duration,
+                about: this.about
             }
             this.$store.commit('musicNow', musicNow)
+        }
+
+    },
+    computed: {
+        download() {
+            return this.$store.state.download
+        },
+        favorite(){
+            return this.$store.state.favorite
         }
     }
 }
@@ -107,12 +117,15 @@ export default {
 .music:hover>.horiz {
     opacity: 1;
 }
-.music:hover > div > .number{
+
+.music:hover>div>.number {
     display: none;
 }
-.music:hover > div > .play-arrow{
+
+.music:hover>div>.play-arrow {
     display: block;
 }
+
 .music-number {
     width: 3vw;
     display: flex;
@@ -120,12 +133,15 @@ export default {
     justify-content: center;
     color: var(--font-color);
 }
+
 .number {
     display: block;
 }
-.play-arrow{
+
+.play-arrow {
     display: none;
 }
+
 .thumb {
     height: 6.5vh;
     border-radius: 5px;
