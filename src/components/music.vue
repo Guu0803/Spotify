@@ -20,7 +20,9 @@
                         <span class="material-symbols-sharp downloaded" v-if="download">
                             south
                         </span>
-                        {{ artist }}
+                        <div v-on:click.stop="toTestes()">
+                            {{ artist }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,6 +59,11 @@ export default {
         }
     },
     methods: {
+        toTestes(){
+            let infoArtist = this.artist
+            localStorage.setItem('artist', infoArtist)
+            this.$router.push('/teste')
+        },
         showFavorite() {
             if (this.like == false) {
                 this.like = true
@@ -80,7 +87,7 @@ export default {
         download() {
             return this.$store.state.download
         },
-        favorite(){
+        favorite() {
             return this.$store.state.favorite
         }
     }
@@ -241,4 +248,5 @@ export default {
     color: var(--font-color);
     opacity: 0;
     margin-right: 1vh;
-}</style>
+}
+</style>

@@ -84,7 +84,7 @@
           {{ music.artist }}
         </div>
         <div class="listeners">
-          {{music.about.listeners}}
+          {{music.about.listeners}} ouvintes mensais
           <div class="follow" v-on:click="following()">
             <div v-if="follow">
               Seguindo
@@ -585,6 +585,7 @@ body {
 .listeners {
   font-weight: 600;
   display: flex;
+  gap: 1vw;
   justify-content: space-between;
   align-items: center;
   margin: 1vh 0 2vh 2vw;
