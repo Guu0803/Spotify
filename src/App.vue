@@ -47,7 +47,7 @@
     <div class="footer">
       <div class="title-container">
         <div class="title">
-          Nome da Playlist
+          {{ music.playlist }}
         </div>
         <span class="material-symbols-sharp close">
           close

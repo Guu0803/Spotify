@@ -3,7 +3,7 @@
         <playlist playlistName="This is Nothing but Thieves" :playlistImg="require('@/assets/nothing.png')" playlist="nothing"/>
        <div class="container-music">
         <div v-for="(music, index) in thisIs" :key="music">
-            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :album="music.album"  :about="music.about" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
+            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :pageArtist="false" :album="music.album"  playlist="This is Nothing but Thieves" :about="music.about" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
         </div>
        </div>
     </div>

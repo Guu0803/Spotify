@@ -5,7 +5,7 @@
         <div class="teste">
             <div v-for="(music, index) in playlistDailyMix" :key="music">
                 <music :songNumber=(index+1) :name="music.name" :artist="music.artist" :album="music.album"
-                    :albumCover="music.albumCover" :duration="music.duration" :about="music.about"
+                    :albumCover="music.albumCover" :duration="music.duration" :about="music.about" playlist="Daily Mix 1" :pageArtist="false"
                     :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })" />
             </div>
         </div>

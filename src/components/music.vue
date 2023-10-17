@@ -20,7 +20,7 @@
                         <span class="material-symbols-sharp downloaded" v-if="download">
                             south
                         </span>
-                        <div v-on:click.stop="toTestes()">
+                        <div v-on:click.stop="toArtist()" v-if="pageArtist == false">
                             {{ artist }}
                         </div>
                     </div>
@@ -30,7 +30,12 @@
                 {{ album }}
             </div>
             <div class="add">
+               <div v-if="reproductions">
+                {{ reproductions }}
+               </div>
+               <div v-else>
                 {{ added }}
+               </div>
             </div>
             <div class="favorite-container" v-on:click.stop="showFavorite()">
                 <span class="material-icons favorite" v-if="like || favorite">
@@ -52,17 +57,17 @@
 <script>
 export default {
     name: 'musicComponent',
-    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'explicit', 'about'],
+    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'explicit', 'about', 'playlist', 'reproductions', 'pageArtist'],
     data() {
         return {
             like: false
         }
     },
     methods: {
-        toTestes(){
+        toArtist(){
             let infoArtist = this.artist
             localStorage.setItem('artist', infoArtist)
-            this.$router.push('/teste')
+            this.$router.push('/artist')
         },
         showFavorite() {
             if (this.like == false) {
@@ -77,7 +82,9 @@ export default {
                 artist: this.artist,
                 albumCover: this.albumCover,
                 duration: this.duration,
-                about: this.about
+                about: this.about,
+                playlist:this.playlist,
+                reproductions:this.reproductions
             }
             this.$store.commit('musicNow', musicNow)
         }
@@ -159,7 +166,7 @@ export default {
     display: flex;
     gap: 1vw;
     align-items: center;
-    font-weight: 500;
+    font-weight: 700;
     width: 18vw;
     font-size: 0.8em;
 }
@@ -201,7 +208,7 @@ export default {
 }
 
 .music-album:hover,
-.music-artist:hover {
+.music-artist:hover>div {
     text-decoration: underline 1px;
 }
 

@@ -11,7 +11,7 @@ import Sessions from '@/views/Sessions.vue'
 import Country from '@/views/Country.vue'
 import NothingButThieves from '@/views/NothingBut.vue'
 import SeusEpisodios from '@/views/SeusEpisodios.vue'
-import teste from  '@/views/teste.vue'
+import Artista from  '@/views/Artist.vue'
 
 const routes = [
   {
@@ -75,9 +75,9 @@ const routes = [
     component: SeusEpisodios
   },
   {
-    path:'/teste',
-    name:'testePage',
-    component: teste
+    path:'/artist',
+    name:'artistPage',
+    component: Artista
   },
 ]
 

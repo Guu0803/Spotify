@@ -5,7 +5,7 @@
         <div class="container-music">
             <div v-for="(music, index) in mixIndie" :key="music">
                 <music :songNumber=(index+1) :name="music.name" :artist="music.artist" :album="music.album"
-                    :albumCover="music.albumCover" :duration="music.duration" :about="music.about"
+                playlist="Mix Indie"  :albumCover="music.albumCover" :duration="music.duration" :about="music.about" :pageArtist="false"
                     :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })" />
             </div>
         </div>

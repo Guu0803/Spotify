@@ -3,7 +3,7 @@
         <playlist playlistName="Indie Vibration" :playlistImg="require('@/assets/indie.png')" playlist="vibration"/>
         <div class="container-music">
             <div v-for="(music, index) in indieVibration" :key="music">
-            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :album="music.album"  :about="music.about" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
+            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :album="music.album"  playlist="Indie Vibration"  :about="music.about" :pageArtist="false" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
         </div>
         </div>
     </div>

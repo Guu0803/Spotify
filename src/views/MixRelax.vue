@@ -4,7 +4,7 @@
         :playlistImg="require('@/assets/mix-relax.png')" playlist="relax"/>
         <div class="container-music">
             <div v-for="(music, index) in mixRelax" :key="music">
-            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :album="music.album" :about="music.about" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
+            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :album="music.album"  playlist="Mix Relax" :about="music.about"  :pageArtist="false" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
         </div>
         </div>
     </div>
