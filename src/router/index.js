@@ -12,6 +12,7 @@ import Country from '@/views/Country.vue'
 import NothingButThieves from '@/views/NothingBut.vue'
 import SeusEpisodios from '@/views/SeusEpisodios.vue'
 import Artista from  '@/views/Artist.vue'
+import Album from '@/views/Album.vue'
 
 const routes = [
   {
@@ -78,6 +79,11 @@ const routes = [
     path:'/artist',
     name:'artistPage',
     component: Artista
+  },
+  {
+    path:'/album',
+    name:'albumPage',
+    component: Album
   },
 ]
 

@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="music-album">
+            <div class="music-album" v-on:click.stop="toAlbum()">
                 {{ album }}
             </div>
             <div class="add">
@@ -68,6 +68,14 @@ export default {
             let infoArtist = this.artist
             localStorage.setItem('artist', infoArtist)
             this.$router.push('/artist')
+        },
+        toAlbum(){
+            let album = {
+                albumName:this.album,
+                albumCover:this.albumCover
+            }
+            localStorage.setItem('album', JSON.stringify(album))
+            this.$router.push('/album')
         },
         showFavorite() {
             if (this.like == false) {

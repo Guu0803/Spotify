@@ -32,13 +32,19 @@
                     <div
                         v-if="(playlist != 'episodios' && playlist != 'curtidas' && playlist != 'country' && playlist != 'vibration') || enriquecer == true">
                         <img src="@/assets/spotify-icon.png" class="spotify-icon">
-                        <div style="color:#cac2c2 ;">
+                        <div style="color:#cac2c2 ;" v-if="playlist != 'album'">
                             Feito para
                         </div>
                     </div>
+                    
                     <div>
                         <div class="user">
-                            Gustavo Nogueira
+                            <div v-if="playlist != 'album'">
+                                Gustavo Nogueira
+                            </div>
+                            <div v-else>
+                                {{ artist3 }}
+                            </div>
                         </div>
                         <span class="material-icons dot">
                             fiber_manual_record
@@ -46,8 +52,11 @@
                         <div v-if="episode == true">
                             2 episódios
                         </div>
-                        <div v-else>
+                        <div v-else-if="playlist != 'album'">
                             5 músicas,
+                        </div>
+                        <div v-else>
+                            1 música
                         </div>
                     </div>
                     {{ playlistDuration() }}
@@ -101,7 +110,7 @@
                         more_horiz
                     </span>
                 </div>
-                <div class="search-container">
+                <div class="search-container" v-if="playlist != 'album'">
                     <span class="material-symbols-sharp search">
                         search
                     </span>
@@ -122,11 +131,19 @@
                         Título
                     </div>
                     <div class="album">
-                        Álbum
+                        <div v-if="playlist != 'album'">
+                            Album
+                        </div>
                     </div>
                     <div class="added">
-                        Adicionado em
+                        <div  v-if="playlist != 'album'">
+                            Adicionado em
+                        </div>
+                        <div v-else >
+                            Reproduções
+                        </div>
                     </div>
+
                     <div class="duration">
                         <span class="material-symbols-sharp clock">
                             schedule
@@ -148,11 +165,11 @@ export default {
             enrich: false,
             download: false,
             like: false,
-            play:false
+            play: false
         }
     },
     methods: {
-        playPlaylist(){
+        playPlaylist() {
             if (this.play == false) {
                 this.play = true
             } else {
@@ -185,6 +202,9 @@ export default {
         background() {
             if (this.playlist == 'session') {
                 return 'background-color: rgba(114, 49, 114, 0.7);'
+            }
+            if (this.playlist == 'album') {
+                return 'background-color: rgb(50, 50, 78);'
             }
             if (this.playlist == 'country') {
                 return 'background-color: rgb(184,20,20);'
@@ -220,6 +240,9 @@ export default {
         backgroundPlaylistHeader() {
             if (this.playlist == 'session') {
                 return 'background-image: linear-gradient(to bottom, rgb(66, 27, 66) 10%, var(--div-background) 50%);'
+            }
+            if (this.playlist == 'album') {
+                return 'background-image: linear-gradient(to bottom, rgb(34, 34, 51) 10%, var(--div-background) 50%);'
             }
             if (this.playlist == 'country') {
                 return 'background-image: linear-gradient(to bottom, rgb(141, 14, 14) 10%, var(--div-background) 50%);'
@@ -300,7 +323,6 @@ export default {
 }
 
 .window {
-    background-color: rgb(50, 78, 34);
     border-radius: 10px;
 }
 
@@ -397,6 +419,7 @@ export default {
 .playlist-header {
     position: relative;
     height: 60vh;
+
 }
 
 .btn-container {

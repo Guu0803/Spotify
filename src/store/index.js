@@ -711,6 +711,7 @@ export default createStore({
       {
         artist: 'Sam Fender',
         name: 'Dead Boys',
+        album: 'Hypersonic Missiles',
         about: {
           cover: require('@/assets/sobre-fender.png'),
           listeners: '3.545.784',
@@ -724,6 +725,7 @@ export default createStore({
       {
         artist: 'Two Door Cinema Club',
         name: 'Wonderful Life - edit',
+        album: 'Wonderful Life',
         albumCover: require('@/assets/wonderful-album.png'),
         duration: "3:06",
          about: {
@@ -736,6 +738,7 @@ export default createStore({
       },
       {
         artist: 'Circa Waves',
+        album: 'Different Creatures',
         name: 'Fire That Burns',
         albumCover: require('@/assets/different-album.png'),
         duration: "3:50",
@@ -749,6 +752,7 @@ export default createStore({
       },
       {
         name: 'Come Around',
+        album: 'Come Around',
         artist: 'Corella',
         about: {
           cover: require('@/assets/sobre-corella.png'),
@@ -762,6 +766,7 @@ export default createStore({
       },
       {
         artist: 'Nothing But Thieves',
+        album: 'Broken Machine (Deluxe)',
         name: 'Amsterdam',
         albumCover: require('@/assets/broken-album.png'),
         duration: "4:32",
@@ -775,6 +780,7 @@ export default createStore({
       },
       {
         artist: 'Luna Bay',
+        album: 'Lights Down',
         name: 'Lights Down',
         albumCover: require('@/assets/lights-down-album.png'),
         duration: "3:08",
@@ -788,6 +794,7 @@ export default createStore({
       },
       {
         artist: 'Glass Caves',
+        album: 'Do You Have a Name',
         name: 'Do You Have a Name',
         albumCover: require('@/assets/have-a-name.png'),
         duration: "3:30",
@@ -801,6 +808,7 @@ export default createStore({
       },
       {
         artist: 'Bleachers',
+        album: 'Gone Now',
         name: "Don't Take The Money",
         albumCover: require('@/assets/gone-now-album.png'),
         duration: "3:35",
@@ -814,6 +822,7 @@ export default createStore({
       },
       {
         artist: 'Ryan McMullan',
+        album: 'Static',
         name: 'Static',
         albumCover: require('@/assets/static-album.png'),
         duration: "3:07",
@@ -827,6 +836,7 @@ export default createStore({
       },
       {
         name: 'Oceans',
+        album: 'Hidden Gems',
         albumCover: require('@/assets/hidden-gems-album.png'),
         duration: "5:09",
         about: {
@@ -840,6 +850,7 @@ export default createStore({
       },
       {
         artist: 'Zac Brown Band',
+        album: 'JEKYLL + HYDE ',
         name: 'Beautiful Drug',
         albumCover: require('@/assets/jekyll-album.png'),
         duration: "3:11",
@@ -853,6 +864,7 @@ export default createStore({
       },
       {
         artist: 'Chris Young',
+        album: 'Famous Friends',
         name: 'At the End of a Bar',
         albumCover: require('@/assets/famous-friends.png'),
         duration: "3:06",
@@ -880,6 +892,7 @@ export default createStore({
       },
       {
         artist: "Somebody's Child",
+        album: "Somebody's Child",
         name: 'We Could Star a War',
         albumCover: require('@/assets/somebody-album.png'),
         duration: "3:37",
@@ -893,6 +906,7 @@ export default createStore({
       },
       {
         artist: 'Dennis Lloyd',
+        album: 'Oceanside',
         name: 'Oceanside',
         about: {
           cover: require('@/assets/sobre-dennis.png'),
@@ -906,6 +920,7 @@ export default createStore({
       },
       {
         artist: 'The Holdup',
+        album: 'Leaves in the Pool',
         name: "Nothing's on Fire",
         albumCover: require('@/assets/leaves-in-the-pool-album.png'),
         duration: "3:22",
@@ -919,6 +934,7 @@ export default createStore({
       },
       {
         name: 'fan behavior',
+        album: 'evil twin',
         artist: 'Isaac Dunbar',
         albumCover: require('@/assets/evil-twin-album.png'),
         duration: "3:02",
@@ -932,6 +948,7 @@ export default createStore({
       },
       {
         name: 'OXOX',
+        album: 'OXOX',
         artist: 'Dutch Melrose',
         albumCover: require('@/assets/oxox-album.png'),
         duration: "2:32",
@@ -945,6 +962,7 @@ export default createStore({
       },
       {
         artist: 'Lofi Leif',
+        album: 'Silent Sky',
         name: 'Silent Sky',
         albumCover: require('@/assets/lofi-leif-album.png'),
         duration: "2:20",
@@ -958,6 +976,7 @@ export default createStore({
       },
       {
         name: 'silent stranger',
+        album: 'silent stranger',
         artist: 'Against The Current',
         albumCover: require('@/assets/silent-album.png'),
         duration: "3:29",
@@ -971,6 +990,7 @@ export default createStore({
       },
       {
         name: 'wrong way',
+        album: 'daydreamer',
         artist: 'Dead Lakes',
         albumCover: require('@/assets/daydreamer-album.png'),
         duration: "3:08",
@@ -984,6 +1004,7 @@ export default createStore({
       },
       {
         name: 'Revolution',
+        album: 'Revolution',
         artist: 'Bishop Briggs',
         albumCover: require('@/assets/revolution-album.png'),
         duration: "3:06",
@@ -1011,6 +1032,7 @@ export default createStore({
       },
       {
         name: 'Sinner',
+        album: 'Sinner',
         artist: 'Of Virtue',
         albumCover: require('@/assets/sinner-album.png'),
         duration: "3:13",
@@ -1024,6 +1046,7 @@ export default createStore({
       },
       {
         artist: "We're Wolves",
+        album: 'Dissonance',
         name: 'Dissonance',
         albumCover: require('@/assets/dissonance-album.png'),
         duration: "4:00",
@@ -1037,6 +1060,7 @@ export default createStore({
       },
       {
         artist: 'Bring Me The Horizon',
+        album: 'POST HUMAN: SURVIVAL HORROR',
         name: 'Obey (with YUNGBLUD)',
         albumCover: require('@/assets/post-album.png'),
         duration: "3:41",
@@ -1050,6 +1074,7 @@ export default createStore({
       },
       {
         artist: 'Escape The Day',
+        album: 'Riot',
         name: 'Riot',
         albumCover: require('@/assets/riot-album.png'),
         duration: "3:10",
@@ -1063,6 +1088,7 @@ export default createStore({
       },
       {
         name: 'Alone In a Room',
+        album: 'Asking Alexandria',
         artist: 'Asking Alexandria',
         albumCover: require('@/assets/asking-album.png'),
         duration: "4:06",
@@ -1076,6 +1102,7 @@ export default createStore({
       },
       {
         name: 'Lock Me Up',
+        album: 'Lock Me Up',
         artist: 'Paloma',
         albumCover: require('@/assets/lock-me-album.png'),
         duration: "3:26",
@@ -1089,6 +1116,7 @@ export default createStore({
       },
       {
         name: 'Bad Decisions',
+        album: 'Doom Days',
         artist: 'Bastille',
         albumCover: require('@/assets/doom-days-album.png'),
         duration: "3:10",
