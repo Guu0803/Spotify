@@ -351,6 +351,7 @@ export default createStore({
           info: "Isaac Dunbar merges elements of alt-pop, smooth R&B, and woozy dance music into his musically whimsical, lyrically earnest songs. He released his debut EP, balloons don't float here, as a high schooler in 2019, leading to his major-label debut, isaac's insects, the following year. "
         },
         added: new Date('2022-02-14'),
+        collaborators:  require('@/assets/user-dry.png')
       },
       {
         name: 'OXOX',
@@ -364,6 +365,7 @@ export default createStore({
           info: 'forever in my feels - IG @dutchmelrose'
         },
         added: new Date('2013-07-14'),
+        collaborators:  require('@/assets/user-vih.png')
       },
       {
         name: 'Play God',
@@ -377,6 +379,7 @@ export default createStore({
           info: "If Sam Fender  debut album, 2019  'Hypersonic Missiles', introduced a smart, street-wise British songwriter with a penchant for euphoric, hard-hitting guitar anthems, it was 2021  peerless 'Seventeen Going Under' that sent the Newcastle artist stratospheric. "
         },
         added: new Date('2022-06-19'),
+        collaborators:  require('@/assets/img-user.png')
       },
       {
         name: 'Good Ideas',
@@ -390,6 +393,8 @@ export default createStore({
           info: "Since bursting onto the scene with their acclaimed debut album Black Holes, The Blue Stones have delivered a crowd-thrilling live show that defies the laws of physics, generating an impossibly massive sound from its two members alone."
         },
         added: new Date('2012-02-14'),
+        collaborators:  require('@/assets/img-user.png')
+
       },
       {
         name: 'Silent Sky',
@@ -403,6 +408,7 @@ export default createStore({
           info: 'nothing'
         },
         added: new Date('2019-07-18'),
+        collaborators:  require('@/assets/user-dry.png')
       }
     ],
     playlistDescobertas: [
@@ -1047,6 +1053,7 @@ export default createStore({
       {
         artist: "We're Wolves",
         album: 'Dissonance',
+        explicit: true,
         name: 'Dissonance',
         albumCover: require('@/assets/dissonance-album.png'),
         duration: "4:00",
@@ -1064,6 +1071,7 @@ export default createStore({
         name: 'Obey (with YUNGBLUD)',
         albumCover: require('@/assets/post-album.png'),
         duration: "3:41",
+        explicit: true,
         about: {
           cover: require('@/assets/sobre-bring.png'),
           listeners: '13.248.653',
@@ -1091,6 +1099,7 @@ export default createStore({
         album: 'Asking Alexandria',
         artist: 'Asking Alexandria',
         albumCover: require('@/assets/asking-album.png'),
+        explicit: true,
         duration: "4:06",
         about: {
           cover: require('@/assets/sobre-asking.png'),

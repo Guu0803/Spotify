@@ -67,13 +67,20 @@
             </div>
           </div>
           <div class="like-container">
-            <span class="material-symbols-sharp like">
-              favorite
-            </span>
+            <div v-on:click="like2()">
+              <span class="material-icons liked" v-if="secondLike">
+                favorite
+              </span>
+              <span class="material-symbols-sharp like" v-else>
+                favorite
+              </span>
+              
+            </div>
             <span class="material-symbols-sharp like">
               more_horiz
             </span>
           </div>
+
         </div>
       </div>
       <div class="about-the-artist">
@@ -84,7 +91,7 @@
           {{ music.artist }}
         </div>
         <div class="listeners">
-          {{music.about.listeners}} ouvintes mensais
+          {{ music.about.listeners }} ouvintes mensais
           <div class="follow" v-on:click="following()">
             <div v-if="follow">
               Seguindo
@@ -95,7 +102,7 @@
           </div>
         </div>
         <div class="description">
-        {{ music.about.info }}
+          {{ music.about.info }}
         </div>
       </div>
     </div>
@@ -214,10 +221,18 @@ export default {
       letter: false,
       queue: false,
       devices: false,
-      mute: false
+      mute: false,
+      secondLike: false
     }
   },
   methods: {
+    like2(){
+      if (this.secondLike == false) {
+        this.secondLike = true
+      } else {
+        this.secondLike = false
+      }
+    },
     muteAll() {
       if (this.mute == false) {
         this.mute = true
@@ -381,7 +396,8 @@ body {
   gap: 1vh;
   padding: 1vh;
 }
-.nav-menu>div{
+
+.nav-menu>div {
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -533,6 +549,7 @@ body {
 
 .artist-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 

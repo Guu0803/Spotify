@@ -1,9 +1,9 @@
 <template>
     <div class="window">
-        <playlist playlistName="Sessions" :playlistImg="require('@/assets/session.png')" playlistDescription="Um Match de músicas feito para Gustavo, Victor e Dry. Atualizado todos os dias" playlist="session"/>
+        <playlist playlistName="Sessions" :playlistImg="require('@/assets/session.png')" playlistDescription="Um Match de músicas feito para Gustavo, Victor e Dry. Atualizado todos os dias." playlist="session"/>
         <div class="container-music">
             <div v-for="(music, index) in sessions" :key="music">
-            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :pageArtist="false" :album="music.album" playlist="Sessions" :about="music.about" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
+            <music  :songNumber=(index+1) :name="music.name" :artist="music.artist" :pageArtist="false" :album="music.album"       :collaborators="music.collaborators" playlist="Sessions" :about="music.about" :albumCover="music.albumCover" :duration="music.duration" :added="music.added.toLocaleDateString('pt-br', { year: 'numeric', month: 'short', day: 'numeric' })"/>
         </div>
         </div>
     </div>

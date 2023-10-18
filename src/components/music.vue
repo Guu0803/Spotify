@@ -33,6 +33,9 @@
                <div v-if="reproductions">
                 {{ reproductions }}
                </div>
+               <div v-else-if="playlist == 'Sessions'">
+                <img :src="collaborators" class="collaborators">
+               </div>
                <div v-else>
                 {{ added }}
                </div>
@@ -57,7 +60,7 @@
 <script>
 export default {
     name: 'musicComponent',
-    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'explicit', 'about', 'playlist', 'reproductions', 'pageArtist'],
+    props: ['songNumber', 'albumCover', 'name', 'artist', 'album', 'added', 'duration', 'explicit', 'about', 'playlist', 'reproductions', 'pageArtist', 'collaborators'],
     data() {
         return {
             like: false
@@ -214,7 +217,10 @@ export default {
     overflow-x: hidden;
     max-height: 3vh;
 }
-
+.collaborators{
+    height: 3.5vh;
+    border-radius: 50%;
+}
 .music-album:hover,
 .music-artist:hover>div {
     text-decoration: underline 1px;

@@ -4,7 +4,7 @@
         <div class="container-music">
             <div>
                 <music :albumCover="artist.albumCover" :name="artist.name" :artist="artist.artist" :duration="artist.duration"
-                :explicit="artist.explicit" :playlist="artist.artist"  :songNumber="1" :about="artist.about"  :reproductions="artist.reproductions"
+                :explicit="artist.explicit" :playlist="artist.artist" :songNumber="1" :about="artist.about"  :reproductions="artist.reproductions"
                 :pageArtist="false" />
             </div>
         </div>

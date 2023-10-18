@@ -4,7 +4,12 @@
             <img :src="playlistImg" class="img-thumb">
             <div>
                 <div class="playlist-type">
-                    Playlist pública
+                    <div v-if="playlist != 'album'">
+                        Playlist pública
+                    </div>
+                    <div v-else>
+                        Álbum
+                    </div>
                 </div>
                 <div class="playlist-name">
                     {{ playlistName }}
@@ -136,14 +141,16 @@
                         </div>
                     </div>
                     <div class="added">
-                        <div  v-if="playlist != 'album'">
+                        <div  v-if="playlist != 'album' && playlist != 'session'">
                             Adicionado em
+                        </div>
+                        <div v-else-if="playlist == 'session'">
+                            Adicionado por
                         </div>
                         <div v-else >
                             Reproduções
                         </div>
                     </div>
-
                     <div class="duration">
                         <span class="material-symbols-sharp clock">
                             schedule
