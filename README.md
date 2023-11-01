@@ -4,12 +4,13 @@ Este é um projeto de website inspirado visualmente no design do Spotify Desktop
 
 ## Demonstração
 
-Inclua um link para uma demonstração ao vivo do site ou capturas de tela que mostrem o design e o estilo visual.
+![spotify](https://github.com/Guu0803/spotify/assets/110205737/8787f64a-0780-4bcc-9669-8a33b66fd676)
+
+gustavo-spotify.netlify.app
 
 ## Tecnologias Utilizadas
 - [Vue.js](https://vuejs.org/): O framework JavaScript utilizado para a construção da interface do usuário.
 - HTML, CSS e JavaScript: Para a estrutura e estilização do site e a funcionalidade.
-- [Outras tecnologias e bibliotecas específicas que você tenha usado]
 
 ## Características
 
