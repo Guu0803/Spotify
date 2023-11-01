@@ -33,7 +33,7 @@ Se desejar contribuir para este projeto, siga estas etapas:
 
 ## Autor
 
-Gustano Nogueira
+[Gustano Nogueira]
 
 
 ---
