@@ -88,79 +88,9 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/spotify/'),
-  routes: [
-    {
-      path: '/',
-      name: 'homePage',
-      component: Home,
-    },
-    {
-      path:'/mix-indie',
-      name:'indiePage',
-      component: Indie
-    },
-    {
-      path:'/descobertas-da-semana',
-      name:'descobertasPage',
-      component: Descobertas
-    },
-    {
-      path:'/indie-vibration',
-      name:'indieVibrationPage',
-      component: IndieVibration
-    },
-    {
-      path:'/mix-metal',
-      name:'mixMetalPage',
-      component: MixMetal
-    },
-    {
-      path:'/mix-relax',
-      name:'mixRelaxPage',
-      component: MixRelax
-    },
-    {
-      path:'/musicas-curtidas',
-      name:'musicasCurtidasPage',
-      component: MusicasCurtidas
-    },
-    {
-      path:'/sessions',
-      name:'sessionsPage',
-      component: Sessions
-    },
-    {
-      path:'/daily-mix',
-      name:'dailyMixPage',
-      component: DailyMix
-    },
-    {
-      path:'/country',
-      name:'countryPage',
-      component: Country
-    },
-    {
-      path:'/this-is-nothing-but-thieves',
-      name:'nothingPage',
-      component: NothingButThieves
-    },
-    {
-      path:'/seus-episodios',
-      name:'episodiosPage',
-      component: SeusEpisodios
-    },
-    {
-      path:'/artist',
-      name:'artistPage',
-      component: Artista
-    },
-    {
-      path:'/album',
-      name:'albumPage',
-      component: Album
-    },
-  ]
+  history: createWebHistory(process.env.BASE_URL),
+  routes
 })
+
 
 export default router
