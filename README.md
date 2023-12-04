@@ -9,7 +9,7 @@ Este é um projeto de website inspirado visualmente no design do Spotify Desktop
 (gustavo-spotify.netlify.app)
 
 ## Tecnologias Utilizadas
-- [Vue.js]: O framework JavaScript utilizado para a construção da interface do usuário.
+- Vue.js: O framework JavaScript utilizado para a construção da interface do usuário.
 - HTML, CSS e JavaScript: Para a estrutura e estilização do site e a funcionalidade.
 
 ## Características
